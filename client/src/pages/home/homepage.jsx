@@ -10,7 +10,7 @@ class Homepage extends Component {
         <h1>WorldWide News</h1>
         <span className="languges">
           <ul>
-            <li id="he" img></li>
+            <li id="he"></li>
             <li id="ru"></li>
             <li id="ar"></li>
             <li id="en"></li>

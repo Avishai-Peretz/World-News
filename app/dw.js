@@ -4,40 +4,41 @@ import { Site } from "./models/site/site.model.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const getClarinData = async () => {
-  console.log(process.env.API_KEY);
-  const browser = await puppeteer.launch();
+export const getDwData = async () => {
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
-  await page.goto("https://www.clarin.com/edicioninternacional/");
-  await page.waitForSelector(".link_article", {
-    timeout: 100000,
-  });
-  await page.click("a.link_article");
-  await page.waitForSelector("h1", {
+  await page.goto("https://www.dw.com/en/top-stories/s-9097");
+  await page.waitForSelector("h2", {
     timeout: 100000,
   });
   const firstPageInfo = await page.evaluate(() => {
-    const title = document.querySelector("h1").innerText;
-    // const img = document.querySelector(".SiteImageMedia").src;
-    const img = document.querySelector(".entry-media >picture >img").src;
-
-    const description = document.querySelector(".bajada h2").innerText;
+    const title = document.querySelector("h2").innerText;
+    const img = document.querySelector(".teaserImg > a > img").src;
+    const description = document.querySelector(
+      ".teaserContentWrap > a > p"
+    ).innerText;
     return { title, img, description };
   });
-  // console.log(firstPageInfo);
+  await page.click(".teaserImg > a");
+  await page.waitForSelector(".longText > p", {
+    timeout: 100000,
+  });
   const grabContent = await page.evaluate(() => {
-    const content = [...document.querySelectorAll(".body-nota")]
+    const content = [...document.querySelectorAll(".longText > p")]
       .map((elem) => elem.innerText)
       .filter((elem) => elem.length > 10)
       .join("\n");
     return content;
   });
-  // console.log(grabContent);
-
   await browser.close();
   const body = {
-    name: "clarin",
+    name: "dw",
     img: firstPageInfo.img,
+    en: {
+      title: firstPageInfo.title,
+      description: firstPageInfo.description,
+      content: grabContent,
+    },
   };
   const createOptions = (content) => {
     return {
@@ -45,7 +46,7 @@ export const getClarinData = async () => {
       url: "https://microsoft-translator-text.p.rapidapi.com/translate",
       params: {
         "api-version": "3.0",
-        "to[0]": "en,ar,ru,he",
+        "to[0]": "he,ar,ru",
         textType: "plain",
         profanityAction: "NoAction",
       },
@@ -68,7 +69,7 @@ export const getClarinData = async () => {
   const title = await sendGetRequest(firstPageInfo.title);
   const description = await sendGetRequest(firstPageInfo.description);
   const mainContent = await sendGetRequest(grabContent);
-  body.en = {
+  body.he = {
     title: title[0].text,
     description: description[0].text,
     content: mainContent[0].text,
@@ -83,15 +84,7 @@ export const getClarinData = async () => {
     description: description[2].text,
     content: mainContent[2].text,
   };
-  body.he = {
-    title: title[3].text,
-    description: description[3].text,
-    content: mainContent[3].text,
-  };
-  // console.log(body);
   const site = new Site(body);
   const newSite = await site.save();
   return newSite;
 };
-
-// getClarinData();

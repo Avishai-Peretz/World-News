@@ -5,32 +5,34 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getNDTVData = async () => {
-    const browser = await puppeteer.launch({headless: false});
-    const page = await browser.newPage();
-    await page.goto("https://www.jansatta.com/");
-      await page.waitForSelector("article.category-national ", {
-           timeout: 10000,
-      }); 
-      await page.click("article.category-national > figure > a");
-      await page.waitForSelector(".wp-block-post-title", {
-        timeout: 10000,
-      });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+  const page = await browser.newPage();
+  await page.goto("https://www.jansatta.com/");
+  await page.waitForSelector("article.category-national ", {
+    timeout: 10000,
+  });
+  await page.click("article.category-national > figure > a");
+  await page.waitForSelector(".wp-block-post-title", {
+    timeout: 10000,
+  });
   const firstPageInfo = await page.evaluate(() => {
     const title = document.querySelector("h1.wp-block-post-title").innerText;
-    const img = document.querySelector("div.wp-block-post-featured-image > img").src;
-    const description = document.querySelector("h2.wp-block-post-excerpt__excerpt").innerText;
+    const img = document.querySelector(
+      "div.wp-block-post-featured-image > img"
+    ).src;
+    const description = document.querySelector(
+      "h2.wp-block-post-excerpt__excerpt"
+    ).innerText;
     return { title, img, description };
   });
-  
   const grabContent = await page.evaluate(() => {
-      const content = [...document.querySelectorAll("#pcl-full-content > p")]
+    const content = [...document.querySelectorAll("#pcl-full-content > p")]
       .map((elem) => elem.innerText)
       .filter((elem) => elem.length > 10)
       .join("\n");
-      return content;
-    });
-    console.log(firstPageInfo, grabContent);
-    await browser.close();
+    return content;
+  });
+  await browser.close();
   const body = {
     name: "jansatta",
     img: firstPageInfo.img,
@@ -63,7 +65,7 @@ export const getNDTVData = async () => {
       const resp = await axios.request(createOptions(content));
       return resp.data[0].translations;
     } catch (err) {
-          console.error(err);
+      console.error(err);
     }
   };
   const title = await sendGetRequest(firstPageInfo.title);
@@ -88,4 +90,3 @@ export const getNDTVData = async () => {
   const newSite = await site.save();
   return newSite;
 };
-
