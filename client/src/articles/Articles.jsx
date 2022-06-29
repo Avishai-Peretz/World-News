@@ -1,5 +1,11 @@
 import React from "react";
 import "./articles.css";
+import  "../media/albayan.png"
+import  "../media/ynet.png"
+import  "../media/dw.png"
+import  "../media/moscowtimes.png"
+import  "../media/panet.png"
+
 
 const Article = ({ article, lang }) => {
   const getLang = () => {
@@ -23,7 +29,7 @@ const Article = ({ article, lang }) => {
   return (
     <div className="article-container">
       <div>
-        <h1>{article.name}</h1>
+        <div articleName={article.name}></div>
       </div>
       <div>
         <img className="article-img" src={article.img} alt="img" />

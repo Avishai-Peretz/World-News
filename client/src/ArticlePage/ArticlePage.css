@@ -20,3 +20,39 @@
 .article-page-img{
     width: 40vw;
 }
+[articleName = "ynet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/ynet.png) center center/contain no-repeat;
+}
+[articleName = "albayan"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/albayan.png) center center/contain no-repeat;
+}
+[articleName = "dw"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/dw.png) center center/contain no-repeat;
+}
+[articleName = "jansatta"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/jansatta.png) center center/contain no-repeat;
+}
+[articleName = "moscowtimes"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/moscowtimes.png) center center/contain no-repeat;
+}
+[articleName = "panet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/panet.png) center center/contain no-repeat;
+}

@@ -6,12 +6,8 @@ import { myContext } from "../context/language.js";
 import React from "react";
 
 const MainPage = () => {
-  //  function About () {
+
   const { lang} = useContext(myContext);
-
-  // he , ru , al , ar
-
-  // ynet ,
 
   let about = {
     sites: [
@@ -49,10 +45,50 @@ const MainPage = () => {
 
     team: {
       en: [
+        {aboutUs: "Abou Us"},
         {
           name: "Avishai",
           img: "./images/user.png",
           text: "We are 6 group members who met through a programming bootcamp. Our values & identities stem from different roots of religions & cultures together with our other class mates. So, this week’s mission was to find an idea that represents & connects us all on a deeper level. Our team: Avishai Peretz, Dima Din, Sharona Tokatli, Eden Kricheli, Matan Waiss, Amir Gilboa.",
+        },
+        { name: "Dmitry", img: "./images/user.png" },
+        { name: "Amir", img: "./images/user.png" },
+        { name: "Matan", img: "./images/user.png" },
+        { name: "Eden", img: "./images/user.png" },
+        { name: "Sarona", img: "./images/user.png" },
+      ],
+      he: [
+        {aboutUs: "קצת עלינו"},
+        {
+          name: "אבישי",
+          img: "./images/user.png",
+          text: " אנחנו שישה חברי קבוצה שנפגשו דרך הבוטקאמפ לתכנות של עמותת תפוחת הערכים והזהויות שלנו נובעים משורשים שונים של דתות ותרבויות. המשימה של השבוע היתה למצוא רעיון שמייצג ומחבר את כולנו ברמה עמוקה יותר.",
+        },
+        { name: "דימטרי", img: "./images/user.png" },
+        { name: "עמיר", img: "./images/user.png" },
+        { name: "מתן", img: "./images/user.png" },
+        { name: "עדן", img: "./images/user.png" },
+        { name: "שרונה", img: "./images/user.png" },
+      ],
+      ar: [
+        {aboutUs: "معلومات عنا"},
+        {
+          name: "Avishai",
+          img: "./images/user.png",
+          text: "ايس ، أمير جلبوعنحن ستة أعضاء في مجموعة التقينا من خلال المعسكر التدريبي لبرمجة جمعيتنا للقيم والهويات المنبثقة عن الجذور المختلفة للأديان والثقافات. كانت مهمة هذا الأسبوع هي العثور على فكرة تمثلنا وتربطنا جميعًا على مستوى أعمق.",
+        },
+        { name: "Dmitry", img: "./images/user.png" },
+        { name: "Amir", img: "./images/user.png" },
+        { name: "Matan", img: "./images/user.png" },
+        { name: "Eden", img: "./images/user.png" },
+        { name: "Sarona", img: "./images/user.png" },
+      ],
+      ru: [
+        {aboutUs: "о нас"},
+        {
+          name: "Avishai",
+          img: "./images/user.png",
+          text: "Мы шесть членов группы, которые встретились на буткемпе для программирования нашей ассоциации ценностей и идентичностей, происходящих из разных корней религий и культур. Задача этой недели состояла в том, чтобы найти идею, которая представляет и объединяет нас всех на более глубоком уровне.",
         },
         { name: "Dmitry", img: "./images/user.png" },
         { name: "Amir", img: "./images/user.png" },
@@ -100,7 +136,7 @@ const MainPage = () => {
     let intro = "";
     if (about) {
         if (lang === "he") {
-          team = about.team.en;
+          team = about.team.he;         
           intro = about.intro.he;
         }
         if (lang === "en") {
@@ -108,11 +144,11 @@ const MainPage = () => {
           intro = about.intro.en;
         }
         if (lang === "ru") {
-          team = about.team.en;
+          team = about.team.ru;
           intro = about.intro.ru;
         }
         if (lang === "ar") {
-          team = about.team.en;
+          team = about.team.ar;
           intro = about.intro.ar;
         }
         return {team, intro};
@@ -168,7 +204,14 @@ const MainPage = () => {
       <div className="content">
         <div className="intro">{intro}</div>
         <div className="aboutUs">
-          {}
+            <h1>{team[0].aboutUs}</h1>
+            <h2>{team[1].text}</h2>
+            <h2>Team Leader - {team[1].name}</h2>
+            <h3>Back-End - {team[4].name}</h3>
+            <h3>Back&Front - {team[3].name}</h3>
+            <h3>Front-End - {team[3].name}</h3>            
+            <h3>Front-End - {team[6].name}</h3>            
+            <h3>Front-End - {team[5].name}</h3>            
         </div>
       </div>
       <div className="logos-container">

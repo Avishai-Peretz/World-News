@@ -2,6 +2,12 @@
   height: 11vh;
   width: 100vw;
   background-color: hsl(220 12% 20%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-continer > h1 {
+  font-size: 40px;
 }
 .logo {
   width: 10vw;
@@ -104,4 +110,29 @@ nav ul li a:hover::before {
     visibility: visible;
     opacity: 1;
   }
+}
+
+button[name="en"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../media/usa.png) center center/cover no-repeat;
+}
+button[name="he"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../media/israel.png) center center/cover no-repeat;
+}
+button[name="ru"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../media/russia.png) center center/contain no-repeat;
+}
+button[name="ar"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../media/ae.png) center center/cover no-repeat;
 }

@@ -1,12 +1,13 @@
 .article-container{
     text-decoration: none;
-    background-color: rgba(255, 228, 196, 0.466);
+    background-color: rgba(204, 204, 204, 0.507);
     color: black;
     display: flex ;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 33.32vw;
+    width: 33.0vw;
+    min-height: 80vh;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -15,9 +16,45 @@
     margin: 10px;
 }
 .article-img{
-    width: 15vw;
+    width: 30vw;
 }  
 .article-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+[articleName = "ynet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/ynet.png) center center/contain no-repeat;
+}
+[articleName = "albayan"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/albayan.png) center center/contain no-repeat;
+}
+[articleName = "dw"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/dw.png) center center/contain no-repeat;
+}
+[articleName = "jansatta"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/jansatta.png) center center/contain no-repeat;
+}
+[articleName = "moscowtimes"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/moscowtimes.png) center center/contain no-repeat;
+}
+[articleName = "panet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../media/panet.png) center center/contain no-repeat;
 }
   

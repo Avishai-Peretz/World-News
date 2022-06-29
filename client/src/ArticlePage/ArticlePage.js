@@ -51,7 +51,7 @@ export default function ArticlePage(props) {
       <div className="article-page-container">
         <div className="content-container">
           <div>
-            <h1>{article.name}</h1>
+            <div articleName={article.name}></div>
           </div>
           <div>
             <img className="article-page-img" src={article.img} alt="img" />

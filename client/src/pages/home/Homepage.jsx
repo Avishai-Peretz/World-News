@@ -9,14 +9,12 @@ const Homepage = () => {
 
   return (
     <div className="page">
-      <h1>WorldWide News</h1>
-
       <div className="articles-container">
         {sixTopArticles
           ? sixTopArticles.map((article) => {
               const topArticle = article;
               return (
-                <Link to={`/article/${article._id}`}>
+                <Link to={`/article/${article._id}`} style={{ textDecoration: 'none' }}>
                   <Article
                     key={topArticle._id}
                     lang={lang}
