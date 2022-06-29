@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default function ArticlePage({ article, lang }) {
+export default function ArticlePage(props) {
+    const articleId = props.match.params.id
+    console.log(articleId)
     const getLang = () => {
         let data = "";
         if (lang === "he") {
