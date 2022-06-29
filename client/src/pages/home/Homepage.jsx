@@ -8,7 +8,7 @@ class Homepage extends Component {
     return (
       <div className="page">
         <h1>WorldWide News</h1>
-        <span className="languges">
+        <span className="languages">
           <ul>
             <li id="he"></li>
             <li id="ru"></li>
