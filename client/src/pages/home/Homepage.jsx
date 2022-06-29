@@ -19,7 +19,7 @@ const Homepage = ({ sixTopArticles }) => {
           <button onClick={handleLanguage} name="ru">russian</button>
           <button onClick={handleLanguage} name="ar">arabic</button>
         </span>
-        <div className="article-container">
+        <div className="articles-container">
         {sixTopArticles ? sixTopArticles.map((article) => {
           const topArticle = article;
           return <Article key={topArticle._id} lang={lang} article={topArticle}/>

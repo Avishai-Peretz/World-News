@@ -1,0 +1,11 @@
+.article-container{
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+    border: 1px solid yellow;
+}
+.article-img{
+    width: 15vw;
+}

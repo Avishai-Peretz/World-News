@@ -21,15 +21,23 @@ const Article = ({ article, lang }) => {
   const data = getLang();
 console.log(article);  
     return (
-      <div className="data = getLang();data = getLang();">
-        <h1>{article.name}</h1>
-        <img className="logo" src={article.img} alt="img" />
-        <h2 className="title">
-          {data.title}
-        </h2>
-        <p>
-          {data.description}
-        </p>
+      <div className="article-container">
+        <div>
+          <h1>{article.name}</h1>
+        </div>
+        <div>
+          <img className="article-img" src={article.img} alt="img" />
+        </div>
+        <div>
+          <h2 className="title">
+            {data.title}
+          </h2>
+        </div>
+        <div>
+          <p>
+            {data.description}
+          </p>
+        </div>
       </div>
     );
   
