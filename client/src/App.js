@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Card from "./components/Card/Card";
+import Article from "./articles/articles";
 import "./App.css";
 
 const URI = (() => {
@@ -23,7 +24,7 @@ function App() {
 
   const getUsers = async () => {
     setIsLoading(true);
-    const users = await axios.get(`${URI}/users`);
+    const users = await axios.get(`${URI}`);
     setUsers(users.data);
     setIsLoading(false);
   };
@@ -158,6 +159,7 @@ function App() {
 
   return (
     <div className="App">
+      <Article/>
       {isLoading ? (
         <h1>Loading Data</h1>
       ) : (
