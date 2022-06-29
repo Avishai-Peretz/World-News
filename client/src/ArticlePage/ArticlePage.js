@@ -43,29 +43,31 @@ export default function ArticlePage(props) {
       const data = getLang(); 
 
     if (article)  {return (
-    <div className="article-page-container">
-    <div>
-      <h1>{article.name}</h1>
-    </div>
-    <div>
-      <img className="article-page-img" src={article.img} alt="img" />
-    </div>
-    <div>
-      <h2 className="title">
-        {data.title}
-      </h2>
-    </div>
-    <div>
-      <h3>
-        {data.description}
-      </h3>
-    </div>
-    <div>
-      <p>
-        {data.content}
-      </p>
-    </div>
-  </div>
+        <div className="article-page-container">
+            <div className="content-container">
+                <div>
+                    <h1>{article.name}</h1>
+                </div>
+                <div>
+                    <img className="article-page-img" src={article.img} alt="img" />
+                </div>
+                <div>
+                    <h2 className="title">
+                        {data.title}
+                    </h2>
+                </div>
+                <div>
+                    <h3>
+                        {data.description}
+                    </h3>
+                </div>
+                <div>
+                    <p>
+                        {data.content}
+                    </p>
+                </div>
+            </div>   
+        </div>
     )
     } else return (
         <div>Loading</div>

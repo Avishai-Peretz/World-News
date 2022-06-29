@@ -1,5 +1,6 @@
 .header-continer {
   height: 11vh;
+  width: 100vw;
   background-color: hsl(220 12% 20%);
 }
 .logo {
