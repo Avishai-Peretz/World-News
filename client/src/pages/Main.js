@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import Homepage from "./pages/home/Homepage.jsx";
-import ContextProvider from "./context/language.js";
+import Homepage from "./home/Homepage.jsx";
+import ContextProvider from "../context/language.js";
 
 const URI = (() => {
   if (process.env.NODE_ENV === "production") {
@@ -12,7 +12,7 @@ const URI = (() => {
   }
 })();
 
-function App() {
+function Main() {
 
   const [sixTopArticles, setTopArticles] = useState();
   const topArticles = async () => {
@@ -32,4 +32,4 @@ console.log(sixTopArticles)
   );
 }
 
-export default App;
+export default Main;
