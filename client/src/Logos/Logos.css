@@ -1,5 +1,5 @@
 :root {
-  --img-size-h: 250px;
+  --img-size-h: 220px;
   --img-size-w: 250px;
 }
 
@@ -30,6 +30,10 @@
 
 .Jansatta {
   background: url("/public/assets/jansatta.png") no-repeat center center/cover;
+  background-size: contain;
+}
+.dw {
+  background: url("/public/assets/dw.jpg") no-repeat center center/cover;
   background-size: contain;
 }
 
