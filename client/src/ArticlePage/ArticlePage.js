@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 import { myContext } from "../context/language.js";
-import "./articlePage.css"
+import "./ArticlePage.css"
 
 export default function ArticlePage(props) {
     const { lang, URI } = useContext(myContext);
@@ -48,7 +48,7 @@ export default function ArticlePage(props) {
       <h1>{article.name}</h1>
     </div>
     <div>
-      <img className="article-img" src={article.img} alt="img" />
+      <img className="article-page-img" src={article.img} alt="img" />
     </div>
     <div>
       <h2 className="title">
