@@ -4,29 +4,27 @@ import { Site } from "./models/site/site.model.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const getNDTVData = async () => {
+export const getDwData = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto("https://www.jansatta.com/");
-  await page.waitForSelector("article.category-national ", {
-    timeout: 10000,
-  });
-  await page.click("article.category-national > figure > a");
-  await page.waitForSelector(".wp-block-post-title", {
-    timeout: 10000,
+  await page.goto("https://www.dw.com/en/top-stories/s-9097");
+  await page.waitForSelector("h2", {
+    timeout: 100000,
   });
   const firstPageInfo = await page.evaluate(() => {
-    const title = document.querySelector("h1.wp-block-post-title").innerText;
-    const img = document.querySelector(
-      "div.wp-block-post-featured-image > img"
-    ).src;
+    const title = document.querySelector("h2").innerText;
+    const img = document.querySelector(".teaserImg > a > img").src;
     const description = document.querySelector(
-      "h2.wp-block-post-excerpt__excerpt"
+      ".teaserContentWrap > a > p"
     ).innerText;
     return { title, img, description };
   });
+  await page.click(".teaserImg > a");
+  await page.waitForSelector(".longText > p", {
+    timeout: 100000,
+  });
   const grabContent = await page.evaluate(() => {
-    const content = [...document.querySelectorAll("#pcl-full-content > p")]
+    const content = [...document.querySelectorAll(".longText > p")]
       .map((elem) => elem.innerText)
       .filter((elem) => elem.length > 10)
       .join("\n");
@@ -34,7 +32,7 @@ export const getNDTVData = async () => {
   });
   await browser.close();
   const body = {
-    name: "jansatta",
+    name: "dw",
     img: firstPageInfo.img,
     en: {
       title: firstPageInfo.title,

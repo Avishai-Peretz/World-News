@@ -13,12 +13,18 @@ export const getPanetData = async () => {
   });
 
   const firstPageInfo = await page.evaluate(() => {
-    const title = document.querySelector(".panet-title").innerText;
-    const img = document.querySelector(".panet-thumbnail").src;
-    const description = document.querySelector(".panet-abstract").innerText;
+    const title = document.querySelector(
+      "#topRightArticle > .panet-title"
+    ).innerText;
+    const img = document.querySelector(
+      "#topRightArticle > .panet-thumbnail-wrapper > a > .panet-thumbnail"
+    ).src;
+    const description = document.querySelector(
+      "#topRightArticle > .panet-abstract"
+    ).innerText;
     return { title, img, description };
   });
-  await page.click(".panet-title > a");
+  await page.click("#topRightArticle > .panet-thumbnail-wrapper > a");
   await page.waitForSelector("h2.panet-title", {
     timeout: 100000,
   });
