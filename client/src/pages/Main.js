@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
 import Homepage from "./home/Homepage.jsx";
-
-const URI = (() => {
-  if (process.env.NODE_ENV === "production") {
-    return "/api";
-  } else {
-    return "http://localhost:5050/api";
-  }
-})();
+import { myContext } from "../context/language.js";
 
 function Main() {
-  const [sixTopArticles, setTopArticles] = useState();
-  
+  const { setTopArticles, sixTopArticles, URI } = useContext(myContext);
+
   const topArticles = async () => {
     const articles = await axios.get(`${URI}`);
     setTopArticles(articles.data);
