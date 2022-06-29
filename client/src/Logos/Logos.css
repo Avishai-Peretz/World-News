@@ -1,0 +1,41 @@
+:root {
+  --img-size-h: 250px;
+  --img-size-w: 250px;
+}
+
+.img {
+  width: var(--img-size-w);
+  height: var(--img-size-h);
+}
+
+.Ynet {
+  background: url("/public/assets/ynet.png") no-repeat center center/cover;
+  background-size: contain;
+}
+.Albayan {
+  background: url("/public/assets/albayan.png") no-repeat center center/cover;
+  background-size: contain;
+}
+
+.Panet {
+  background: url("/public/assets/panet.png") no-repeat center center/cover;
+  background-size: contain;
+}
+
+.Themoscowtimes {
+  background: url("/public/assets/moscow_times.png") no-repeat center
+    center/cover;
+  background-size: contain;
+}
+
+.Jansatta {
+  background: url("/public/assets/jansatta.png") no-repeat center center/cover;
+  background-size: contain;
+}
+
+.logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

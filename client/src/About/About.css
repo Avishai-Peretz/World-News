@@ -1,0 +1,54 @@
+.spinner {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 40vh;
+}
+.spinner div {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top-color: #187920;
+  border-radius: 50%;
+  animation: spinnerOne 0.6s linear infinite;
+}
+
+.spinner div:nth-child(2) {
+  border: 8px solid transparent;
+  border-bottom-color: #187920;
+  animation: spinnerTwo 0.6s linear infinite;
+}
+
+.spinner div:nth-child(3) {
+  border: 8px solid transparent;
+  border-left-color: #187920;
+  animation: spinnerThree 0.6s linear infinite;
+}
+
+.spinner div:nth-child(4) {
+  border: 8px solid transparent;
+  border-right-color: #8cf395;
+  animation: spinnerforth 0.6s linear infinite;
+}
+.main-container {
+  /* background: url("/public/assets/about_back.jpg") no-repeat center
+    center/contain; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logos-container {
+  border: 1px solid black;
+  width: 30vw;
+  height: 100%;
+}
+.content {
+  border: 1px solid black;
+  width: 40vw;
+  height: 100%;
+}
