@@ -1,33 +1,47 @@
-import React, {useContext, useEffect} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import axios from "axios";
 import { useParams } from 'react-router-dom';
 import { myContext } from "../context/language.js";
 
 export default function Page(props) {
-    const { lang, sixTopArticles } = useContext(myContext);
-    const {id:articleId} = useParams();
-    console.log("---------------------------------------------------------------------------",sixTopArticles);
-    const article = sixTopArticles.find(({id}) => id === articleId);
+    const { lang, URI } = useContext(myContext);
+    const { id: articleId } = useParams();
+    
+    const [article, setArticle] = useState();
+    const topArticles = async () => {
+        const articles = await axios.get(`${URI}`);
+        const articlePage = articles ? articles.data.find(({_id}) => _id === articleId) : null;
+        setArticle(articlePage);
+    }; 
+
+    useEffect(() => {
+        topArticles();
+        
+    }, [article, lang]);
+    console.log("---------------------------------------------------------------------------",article, lang);
+    
     
     const getLang = () => {
         let data = "";
-        if (lang === "he") {
-          data = article.he;
+        if (article) {
+            if (lang === "he") {
+              data = article.he;
+            }
+            if (lang === "en") {
+              data = article.en;
+            }
+            if (lang === "ru") {
+              data = article.ru;
+            }
+            if (lang === "ar") {
+              data = article.ar;
+            }
+            return data;
         }
-        if (lang === "en") {
-          data = article.en;
-        }
-        if (lang === "ru") {
-          data = article.ru;
-        }
-        if (lang === "ar") {
-          data = article.ar;
-        }
-        return data;
       }
-      const data = getLang();
-    console.log(article);  
+      const data = getLang(); 
 
-  return (
+    if (article)  {return (
     <div className="article-container">
     <div>
       <h1>{article.name}</h1>
@@ -51,5 +65,8 @@ export default function Page(props) {
       </p>
     </div>
   </div>
+    )
+    } else return (
+        <div>Loading</div>
   )
 }
