@@ -4,11 +4,9 @@ import { myContext } from "../../context/language.js";
 import "./homepage.css";
 
 const Homepage = ({ sixTopArticles }) => {
+
   const { lang, setLang } = useContext(myContext);
 
-  const handleLanguage = (event) => {
-    setLang(event.target.name);
-  };
   return (
     <div className="page">
       <h1>WorldWide News</h1>
