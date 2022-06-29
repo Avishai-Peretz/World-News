@@ -6,12 +6,8 @@ import { myContext } from "../../context/language.js";
 import "./homepage.css";
 
 const Homepage = () => {
-  const { lang, sixTopArticles, topArticles } = useContext(myContext);
-
-  useEffect(() => {
-    topArticles();
-  }, []);
-
+  const { lang, sixTopArticles } = useContext(myContext);
+  
   return (
     <div className="page">
       <h1>WorldWide News</h1>

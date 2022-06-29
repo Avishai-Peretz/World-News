@@ -13,6 +13,7 @@ const URI = (() => {
 
 function Main() {
   const [sixTopArticles, setTopArticles] = useState();
+  
   const topArticles = async () => {
     const articles = await axios.get(`${URI}`);
     setTopArticles(articles.data);
