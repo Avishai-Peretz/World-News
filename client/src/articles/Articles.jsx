@@ -1,9 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import "./articles.css"; 
+import "./articles.css";
 
-
-const Article = ({article,lang }) => {
-  
+const Article = ({ article, lang }) => {
   const getLang = () => {
     let data = "";
     if (lang === "he") {
@@ -19,30 +17,40 @@ const Article = ({article,lang }) => {
       data = article.ar;
     }
     return data;
-  }
+  };
   const data = getLang();
-console.log(article);  
-    return (
-      <div className="article-container">
-        <div>
-          <h1>{article.name}</h1>
-        </div>
-        <div>
-          <img className="article-img" src={article.img} alt="img" />
-        </div>
-        <div>
-          <h2 className="title">
-            {data.title}
-          </h2>
-        </div>
-        <div>
-          <p>
-            {data.description}
-          </p>
-        </div>
+  console.log(article);
+  return (
+    <div className="article-container">
+      <div>
+        <h1>{article.name}</h1>
       </div>
-    );
-  
-}
+      <div>
+        <img className="article-img" src={article.img} alt="img" />
+      </div>
+      <div>
+        <h2
+          className="title"
+          style={{
+            whiteSpace: "pre-wrap",
+            direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
+          }}
+        >
+          {data.title}
+        </h2>
+      </div>
+      <div>
+        <p
+          style={{
+            whiteSpace: "pre-wrap",
+            direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
+          }}
+        >
+          {data.description}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default Article;
