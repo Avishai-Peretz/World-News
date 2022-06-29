@@ -1,76 +1,79 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { myContext } from "../context/language.js";
-import "./ArticlePage.css"
+import "./ArticlePage.css";
 
 export default function ArticlePage(props) {
-    const { lang, URI } = useContext(myContext);
-    const { id: articleId } = useParams();
-    
-    const [article, setArticle] = useState();
-    const topArticles = async () => {
-        const articles = await axios.get(`${URI}`);
-        const articlePage = articles ? articles.data.find(({_id}) => _id === articleId) : null;
-        setArticle(articlePage);
-    }; 
+  const { lang, URI } = useContext(myContext);
+  const { id: articleId } = useParams();
 
-    useEffect(() => {
-        topArticles();
-        
-    }, [article, lang]);
-    console.log("---------------------------------------------------------------------------",article, lang);
-    
-    
-    const getLang = () => {
-        let data = "";
-        if (article) {
-            if (lang === "he") {
-              data = article.he;
-            }
-            if (lang === "en") {
-              data = article.en;
-            }
-            if (lang === "ru") {
-              data = article.ru;
-            }
-            if (lang === "ar") {
-              data = article.ar;
-            }
-            return data;
-        }
+  const [article, setArticle] = useState();
+  const topArticles = async () => {
+    const articles = await axios.get(`${URI}`);
+    const articlePage = articles
+      ? articles.data.find(({ _id }) => _id === articleId)
+      : null;
+    setArticle(articlePage);
+  };
+
+  useEffect(() => {
+    topArticles();
+  }, [article, lang]);
+  console.log(
+    "---------------------------------------------------------------------------",
+    article,
+    lang
+  );
+
+  const getLang = () => {
+    let data = "";
+    if (article) {
+      if (lang === "he") {
+        data = article.he;
       }
-      const data = getLang(); 
+      if (lang === "en") {
+        data = article.en;
+      }
+      if (lang === "ru") {
+        data = article.ru;
+      }
+      if (lang === "ar") {
+        data = article.ar;
+      }
+      return data;
+    }
+  };
+  const data = getLang();
 
-    if (article)  {return (
-        <div className="article-page-container">
-            <div className="content-container">
-                <div>
-                    <h1>{article.name}</h1>
-                </div>
-                <div>
-                    <img className="article-page-img" src={article.img} alt="img" />
-                </div>
-                <div>
-                    <h2 className="title">
-                        {data.title}
-                    </h2>
-                </div>
-                <div>
-                    <h3>
-                        {data.description}
-                    </h3>
-                </div>
-                <div>
-                    <p>
-                        {data.content}
-                    </p>
-                </div>
-            </div>   
+  if (article) {
+    return (
+      <div className="article-page-container">
+        <div className="content-container">
+          <div>
+            <h1>{article.name}</h1>
+          </div>
+          <div>
+            <img className="article-page-img" src={article.img} alt="img" />
+          </div>
+          <div>
+            <h2 className="title">{data.title}</h2>
+          </div>
+          <div>
+            <h3>{data.description}</h3>
+          </div>
+          <div>
+            <p
+              style={{
+                whiteSpace: "pre-wrap",
+                direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
+              }}
+            >
+              {data.content}
+            </p>
+          </div>
         </div>
-    )
-    } else return (
-        <div>Loading</div>
-  )
+      </div>
+    );
+  } else return <div>Loading</div>;
 }
-
