@@ -1,17 +1,38 @@
 import React, { Component } from "react";
+import "./articles.css"; 
 
-class Article extends Component {
-  render() {
+const Article = ({ article, lang }) => {
+  const getLang = () => {
+    let data = "";
+    if (lang === "he") {
+      data = article.he;
+    }
+    if (lang === "en") {
+      data = article.en;
+    }
+    if (lang === "ru") {
+      data = article.ru;
+    }
+    if (lang === "ar") {
+      data = article.ar;
+    }
+    return data;
+  }
+  const data = getLang();
+console.log(article);  
     return (
-      <div className="articleContainer">
-        <img className="logo" src="https://play-lh.googleusercontent.com/aFWiT2lTa9CYBpyPjfgfNHd0r5puwKRGj2rHpdPTNrz2N9LXgN_MbLjePd1OTc0E8Rl1" alt="img" />
+      <div className="data = getLang();data = getLang();">
+        <h1>{article.name}</h1>
+        <img className="logo" src={article.img} alt="img" />
         <h2 className="title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eius
-          </h2>
-        <img className="articleImg" src="https://play-lh.googleusercontent.com/aFWiT2lTa9CYBpyPjfgfNHd0r5puwKRGj2rHpdPTNrz2N9LXgN_MbLjePd1OTc0E8Rl1" alt="img" />
+          {data.title}
+        </h2>
+        <p>
+          {data.description}
+        </p>
       </div>
     );
-  }
+  
 }
 
 export default Article;

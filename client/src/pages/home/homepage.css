@@ -18,3 +18,10 @@ html {
 /* #en{}
 #ar{}
 #{} */
+.article-container {
+  width: 90%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}

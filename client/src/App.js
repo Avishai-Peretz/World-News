@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import Homepage from "./pages/home/Homepage.jsx";
+import ContextProvider from "./context/language.js";
 
 const URI = (() => {
   if (process.env.NODE_ENV === "production") {
@@ -22,10 +23,12 @@ function App() {
   useEffect(() => {
     topArticles();
   }, []);
-
+console.log(sixTopArticles)
 
   return (
-    <Homepage sixTopArticles={sixTopArticles} />
+    <ContextProvider>
+      <Homepage sixTopArticles={sixTopArticles} />
+    </ContextProvider>
   );
 }
 
