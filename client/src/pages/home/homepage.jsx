@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Article from "../../articles/Articles.jsx";
-import "./homepage.css";
+import "./Homepage.css";
 
 class Homepage extends Component {
   sixTopArticles = this.props.sixTopArticles;
@@ -24,4 +24,3 @@ class Homepage extends Component {
 }
 
 export default Homepage;
-
