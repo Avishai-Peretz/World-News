@@ -4,9 +4,6 @@ import Logos from "../Logos/Logos.js";
 import { useState, useEffect, useContext } from "react";
 import { myContext } from "../context/language.js";
 import React from "react";
-import ReactRoundedImage from "react-rounded-image";
-import Fade from "react-reveal/Fade";
-import Bounce from "react-reveal/Bounce";
 
 const MainPage = () => {
   //  function About () {
@@ -135,9 +132,7 @@ const MainPage = () => {
       return (
         <div key={item.name}>
           <a href={item.link}>
-            <Fade left duration={2000}>
-              <div className={` img ${item.name}`}></div>
-            </Fade>
+            <div className={` img ${item.name}`}></div>
           </a>
         </div>
       );
@@ -149,16 +144,7 @@ const MainPage = () => {
     let data = team.map((item, i) => {
       return (
         <div key={i} className="team-item">
-          <Bounce left>
-            <span>{item.name}</span>
-            <ReactRoundedImage
-              image={require(`${item.img}`)}
-              roundedSize="10"
-              imageWidth="100"
-              imageHeight="100"
-              roundedColor="#0000"
-            />
-          </Bounce>
+          <span>{item.name}</span>
         </div>
       );
     });
