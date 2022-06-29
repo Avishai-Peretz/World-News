@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import "./articles.css"; 
 
-const Article = ({ article, lang }) => {
+const Article = ({article,lang }) => {
+  
   const getLang = () => {
     let data = "";
     if (lang === "he") {

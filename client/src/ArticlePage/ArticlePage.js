@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import { myContext } from "../context/language.js";
 
 export default function ArticlePage(props) {
+    const { lang, sixTopArticles } = useContext(myContext);
     const articleId = props.match.params.id
-    console.log(articleId)
+    const article = sixTopArticles.findOne({_id: articleId});
+    console.log("---------------------------------------------------------------------------",articleId);
+    
     const getLang = () => {
         let data = "";
         if (lang === "he") {
