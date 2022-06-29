@@ -25,7 +25,6 @@ function App() {
     topArticles();
   }, []);
 
-  console.log("six top:", sixTopArticles)
 
   return (
     <Homepage />
