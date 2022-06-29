@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import "./App.css";
 import Main from "./pages/Main.js";
 import About from "./About/About.js";
 import Header from "./Header/Header.js";
 import ArticlePage from "./ArticlePage/ArticlePage.js";
-import ContextProvider, { myContext } from "./context/language.js";
+import ContextProvider from "./context/language.js";
 
 function App() {
   // const { setTopArticles, URI } = useContext(myContext);

@@ -10,9 +10,7 @@ import Bounce from "react-reveal/Bounce";
 
 const MainPage = () => {
   //  function About () {
-  const { lang, setLang } = useContext(myContext);
-  const [languages, setLanguages] = useState([]);
-  const [currLang, setCurrLang] = useState({});
+  const { lang} = useContext(myContext);
 
   // he , ru , al , ar
 
@@ -65,27 +63,6 @@ const MainPage = () => {
         { name: "Eden", img: "./images/user.png" },
         { name: "Sarona", img: "./images/user.png" },
       ],
-
-      // he :  [{name : 'אבישי' , img : ''} ,
-      // {name : 'דמיטרי' , img : ''} ,
-      // {name : 'אמיר' , img : ''} ,
-      // {name : 'מתן' , img : ''} ,
-      // {name : 'עדן' , img : ''} ,
-      // {name : 'שרונה' , img : ''} ] ,
-
-      //         ru : [{name : 'Авишай' , img : ''} ,
-      //         {name : 'Дмитрий' , img : ''} ,
-      //         {name : 'Амир' , img : ''} ,
-      //         {name : 'Матан' , img : ''} ,
-      //         {name : 'Эден' , img : ''} ,
-      //         {name : 'Шарона' , img : ''} ],
-
-      //       ar : [{name : 'سارونا' , img : ''} ,
-      //       {name : 'عدن' , img : ''} ,
-      //       {name : 'ماتان' , img : ''} ,
-      //       {name : 'أمير' , img : ''} ,
-      //       {name : 'ديمتري' , img : ''} ,
-      //       {name : 'أفيشاي' , img : ''} ]
     },
     intro: {
       en: [
@@ -120,6 +97,31 @@ const MainPage = () => {
       ],
     },
   };
+
+  const getLang = () => {
+    let team = "";
+    let intro = "";
+    if (about) {
+        if (lang === "he") {
+          team = about.team.en;
+          intro = about.intro.he;
+        }
+        if (lang === "en") {
+          team = about.team.en;
+          intro = about.intro.en;
+        }
+        if (lang === "ru") {
+          team = about.team.en;
+          intro = about.intro.ru;
+        }
+        if (lang === "ar") {
+          team = about.team.en;
+          intro = about.intro.ar;
+        }
+        return {team, intro};
+    }
+  }
+  const {team, intro} = getLang(); 
 
   useEffect(() => {}, []);
 
@@ -178,12 +180,9 @@ const MainPage = () => {
         <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" />
       </div>
       <div className="content">
-        <div class="intro">{`displayInfo(about.intro.${lang})`}</div>
-        <div class="aboutUs">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eleifend feugiat lectus nec volutpat. Cras sed massa et arcu rhoncus
-          luctus. Suspendisse vestibulum tincidunt tortor sit amet elementum.
-          Nullam mattis.
+        <div className="intro">{intro}</div>
+        <div className="aboutUs">
+          {}
         </div>
       </div>
       <div className="logos-container">

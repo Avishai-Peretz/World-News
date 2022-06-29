@@ -19,7 +19,7 @@ export default function ArticlePage(props) {
 
   useEffect(() => {
     topArticles();
-  }, [article, lang]);
+  }, [article, lang, topArticles]);
   console.log(
     "---------------------------------------------------------------------------",
     article,
