@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-    <Homepage />
+    <Homepage sixTopArticles={sixTopArticles} />
   );
 }
 
