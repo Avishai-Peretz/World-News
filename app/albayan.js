@@ -86,4 +86,3 @@ export const getAlbayanData = async () => {
   const newSite = await site.save();
   return newSite;
 };
-// getAlbayanData();
