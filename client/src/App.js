@@ -12,6 +12,7 @@ const URI = (() => {
 })();
 
 function App() {
+
   // const [isLoading, setIsLoading] = useState(false);
   const [sixTopArticles, setTopArticles] = useState();
   const topArticles = async () => {
