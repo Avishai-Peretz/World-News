@@ -7,6 +7,7 @@ class Article extends Component {
         <img className="logo"></img>
         <h2 className="title">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eius
+          </h2>
         <img className="articleImg"></img>
       </div>
     );
