@@ -1,6 +1,8 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import { Site } from "./models/site/site.model.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const getPanetData = async () => {
   const browser = await puppeteer.launch();
@@ -49,7 +51,7 @@ export const getPanetData = async () => {
       },
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "fac48475e4msh6ae5990d3b2722cp1144cdjsnb701dac1e3db",
+        "X-RapidAPI-Key": `${process.env.API_KEY}`,
         "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
       },
       data: [{ Text: content }],
