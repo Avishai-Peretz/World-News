@@ -12,13 +12,11 @@ const URI = (() => {
 })();
 
 function App() {
-  // const [isLoading, setIsLoading] = useState(false);
+
   const [sixTopArticles, setTopArticles] = useState();
   const topArticles = async () => {
-    // setIsLoading(true);
     const articles = await axios.get(`${URI}`);
     setTopArticles(articles.data);
-    // setIsLoading(false);
   };
 
   useEffect(() => {
