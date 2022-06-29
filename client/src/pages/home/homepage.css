@@ -1,4 +1,4 @@
-html{
+html {
   color: white;
 }
 .page {
@@ -6,15 +6,14 @@ html{
   height: 100vh;
 }
 .languges ul {
-color:white;
-display: flex;
-flex-direction: column;
-list-style: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
-#he{
+#he {
   background: url(../../media/israel.png) center center/cover;
-
 }
 /* #en{}
 #ar{}
