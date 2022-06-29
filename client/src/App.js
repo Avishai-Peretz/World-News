@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Main from "./pages/Main";
-import About from "./About/About";
-import Header from "./Header/Header";
-import ArticlePage from "./ArticlePage/ArticlePage";
+import Main from "./pages/Main.js";
+import About from "./About/About.js";
+import Header from "./Header/Header.js";
+import ArticlePage from "./ArticlePage/ArticlePage.js";
 
 function App() {
   return (
