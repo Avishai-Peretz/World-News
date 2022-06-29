@@ -1,21 +1,28 @@
-html{
+html {
   color: white;
 }
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: url(../../media/bgImage.png) no-repeat center center/cover;
-  height: 100vh;
+  height: 130vh;
 }
 .languges ul {
-color:white;
-display: flex;
-flex-direction: column;
-list-style: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
-#he{
+#he {
   background: url(../../media/israel.png) center center/cover;
-
 }
-/* #en{}
-#ar{}
-#{} */
+.articles-container {
+  width: 90%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+}

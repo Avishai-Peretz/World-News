@@ -39,7 +39,7 @@ export const getPanetData = async () => {
   const body = {
     name: "panet",
     img: firstPageInfo.img,
-    he: {
+    ar: {
       title: firstPageInfo.title,
       description: firstPageInfo.description,
       content: grabContent,
