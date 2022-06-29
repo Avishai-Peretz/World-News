@@ -3,7 +3,6 @@ import axios from "axios";
 import { Site } from "./models/site/site.model.js";
 import dotenv from "dotenv";
 dotenv.config();
-
 export const getDwData = async () => {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
