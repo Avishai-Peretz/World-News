@@ -18,14 +18,14 @@ const MainPage = () => {
   ) : (
     <div className="main-container">
       <div className="logos-container">
-        {/* <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" /> */}
+        <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" />
       </div>
       <div className="content">
         <div class="intro"></div>
         <div class="aboutUs"></div>
       </div>
       <div className="logos-container">
-        {/* <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="ue" /> */}
+        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="ue" />
       </div>
     </div>
   );

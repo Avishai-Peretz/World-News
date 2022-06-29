@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import Article from "../../articles/Articles.jsx";
+import { Link } from "react-router-dom";
+
 import { myContext } from "../../context/language.js";
 import "./homepage.css";
 
 const Homepage = ({ sixTopArticles }) => {
-
   const { lang, setLang } = useContext(myContext);
 
   return (
@@ -16,11 +17,13 @@ const Homepage = ({ sixTopArticles }) => {
           ? sixTopArticles.map((article) => {
               const topArticle = article;
               return (
-                <Article
-                  key={topArticle._id}
-                  lang={lang}
-                  article={topArticle}
-                />
+                <Link to={`/article/${article._id}`}>
+                  <Article
+                    key={topArticle._id}
+                    lang={lang}
+                    article={topArticle}
+                  />
+                </Link>
               );
             })
           : "none"}
