@@ -2,6 +2,8 @@ import { Site } from "../models/site/site.model.js";
 import { getYnetData } from "../ynet.js";
 import { getAlbayanData } from "../albayan.js";
 import { getPanetData } from "../panet.js";
+import { getMoscowTimesData } from "../moscowtimes.js";
+
 const getSitesData = async (req, res) => {
   try {
     const data = await Site.find();
@@ -13,6 +15,7 @@ const getSitesData = async (req, res) => {
       await getYnetData();
       await getAlbayanData();
       await getPanetData();
+      await getMoscowTimesData();
     }
     return res.status(200).send(data);
   } catch (e) {
