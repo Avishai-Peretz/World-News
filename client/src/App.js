@@ -16,12 +16,12 @@ function App() {
   const topArticles = async () => {
     const articles = await axios.get(`${URI}`);
     setTopArticles(articles.data);
-
   };
 
   useEffect(() => {
     topArticles();
   }, []);
+  console.log(sixTopArticles)
 
 
   return (

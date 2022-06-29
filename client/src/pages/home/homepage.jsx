@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import Article from "../../articles/Articles.jsx";
 import "./homepage.css";
 
 class Homepage extends Component {
+  sixTopArticles = this.props.sixTopArticles;
   render() {
     return (
       <div className="page">
@@ -14,6 +16,8 @@ class Homepage extends Component {
             <li id="en"></li>
           </ul>
         </span>
+
+        <Article sixTopArticles={this.sixTopArticles} />
       </div>
     );
   }
