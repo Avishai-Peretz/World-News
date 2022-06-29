@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <Homepage />
+    <Homepage setTopArticles={setTopArticles} />
   );
 }
 
