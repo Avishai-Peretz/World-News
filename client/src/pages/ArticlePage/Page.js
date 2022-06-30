@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios";
 import { useParams } from 'react-router-dom';
-import { myContext } from "../context/language.js";
+import { myContext } from "../../context/language.js";
 
 export default function Page(props) {
     const { lang, URI } = useContext(myContext);
