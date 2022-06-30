@@ -70,5 +70,5 @@ export default function ArticlePage(props) {
         </div>
       </div>
     );
-  } else return <div>Loading</div>;
+  } else return <div className="loader-container"><div class="loader"></div></div>;
 }

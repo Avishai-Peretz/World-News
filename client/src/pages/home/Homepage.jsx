@@ -23,7 +23,7 @@ const Homepage = () => {
                 </Link>
               );
             })
-          : "none"}
+          : <div className="loader-container"><div class="loader"></div></div>}
       </div>
     </div>
   );
