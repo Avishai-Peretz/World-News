@@ -167,12 +167,18 @@ const MainPage = () => {
         <div className="aboutUs">
             <h1>{team[0].aboutUs}</h1>
             <h2>{team[1].text}</h2>
-            <h2>Team Leader - {team[1].name}</h2>
+        <div className="team-member" >           
+         <a href="https://www.linkedin.com/in/avishai-peretz-1828621aa/" target="_blank"><h3>Team Leader - {team[1].name} <div className="linkedin"></div></h3></a>
+        </div>
             <h3>Back-End - {team[4].name}</h3>
             <h3>Back&Front - {team[3].name}</h3>
-            <h3>Front&Back - {team[2].name}</h3>            
-            <h3>Front-End - {team[6].name}</h3>            
-            <h3>Front-End - {team[5].name}</h3>            
+            <h3>Front&Back - {team[2].name}</h3>                          
+        <div className="team-member" >           
+         <a href="https://www.linkedin.com/in/sharona-tokatli/" target="_blank"><h3>Front-End - {team[6].name} <div className="linkedin"></div></h3></a>
+        </div>
+        <div className="team-member" >           
+         <a href="https://www.linkedin.com/in/eden-kricheli-2677b4236/" target="_blank"><h3>Front-End - {team[5].name} <div className="linkedin"></div></h3></a>
+        </div>
         </div>
       </div>
       <div className="logos-container">
