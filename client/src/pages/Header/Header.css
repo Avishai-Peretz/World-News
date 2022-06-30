@@ -184,6 +184,12 @@ nav ul li a:hover::before {
   .content {
     margin-bottom: 85px;
   }
+  .main-link:hover::after {
+    width: 0;
+  }
+  .main-link:hover::before {
+    width: 0;
+  }
 }
 
 button[name="en"]{
