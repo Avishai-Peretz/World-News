@@ -61,10 +61,10 @@ const Header = () => {
       </ul>
       <Link to="/" className="main-link" ><h1>{title}</h1></Link>
       <span>
-        <button onClick={handleLanguage} name="en"></button>
-        <button onClick={handleLanguage} name="he"></button>
-        <button onClick={handleLanguage} name="ru"></button>
-        <button onClick={handleLanguage} name="ar"></button>
+        <button className="lang-btn" onClick={handleLanguage} name="en"></button>
+        <button className="lang-btn" onClick={handleLanguage} name="he"></button>
+        <button className="lang-btn" onClick={handleLanguage} name="ru"></button>
+        <button className="lang-btn" onClick={handleLanguage} name="ar"></button>
       </span>
 
       <button onClick={showNavBar} className="nav-btn"></button>
