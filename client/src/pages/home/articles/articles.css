@@ -24,7 +24,7 @@
 
 .article-container p {
     margin-bottom: 4rem;
-    background-color: rgba(245, 245, 220, 0.623);
+    background-color: #888
 }
 .article-container .article-img{ 
     z-index: -1;
