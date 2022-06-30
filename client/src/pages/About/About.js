@@ -171,8 +171,10 @@ const MainPage = () => {
          <a rel="noreferrer" href="https://www.linkedin.com/in/avishai-peretz-1828621aa/" target="_blank"><h3>Team Leader - {team[1].name} <div className="linkedin"></div></h3></a>
         </div>
             <h3 className="team-member">Back-End - {team[4].name}</h3>
-            <h3 className="team-member">Back&Front - {team[3].name}</h3>
-            <h3 className="team-member">Front&Back - {team[2].name}</h3>                          
+            <h3 className="team-member">Back&Front - {team[3].name}</h3>                          
+        <div className="team-member" >           
+         <a rel="noreferrer" href="https://www.linkedin.com/in/dmitri-denysyuk-058b19219" target="_blank"><h3>Front&Back - {team[2].name} <div className="linkedin"></div></h3></a>
+        </div>
         <div className="team-member" >           
          <a rel="noreferrer" href="https://www.linkedin.com/in/sharona-tokatli/" target="_blank"><h3>Front-End - {team[6].name} <div className="linkedin"></div></h3></a>
         </div>
