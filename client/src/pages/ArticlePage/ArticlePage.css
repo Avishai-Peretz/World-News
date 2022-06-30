@@ -1,0 +1,74 @@
+.article-page-container {
+    background-color: #888;
+    color: black;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.content-container {
+    width: 60vw;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.content-container * {
+    margin: 10px;
+}
+
+.content-container h1,h2,h3,p {
+    margin-bottom: 5px;
+}
+
+.article-page-img{
+    width: 40vw;
+}
+[article-name = "ynet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/ynet.png) center center/contain no-repeat;
+}
+[article-name = "albayan"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/albayan.png) center center/contain no-repeat;
+}
+[article-name = "dw"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/dw.png) center center/contain no-repeat;
+}
+[article-name = "jansatta"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/jansatta.png) center center/contain no-repeat;
+}
+[article-name = "moscowtimes"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/moscowtimes.png) center center/contain no-repeat;
+}
+[article-name = "panet"] {
+    width:30vw;
+    height: 14vh;
+    padding: 10px;
+    background: url(../../media/panet.png) center center/contain no-repeat;
+}
+
+@media (max-width: 820px) {
+    .content-container {
+        width: 60vw;
+        display: flex ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

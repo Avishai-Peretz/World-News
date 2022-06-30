@@ -43,3 +43,8 @@
   align-items: center;
   flex-direction: column;
 }
+@media (max-width: 820px) {
+  .logos-container {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../Logos/Logos.css";
+import React from "react";
+import "./Logos.css";
 
 const Logos = ({ logoName1, logoName2, logoName3 }) => {
   return (
@@ -11,6 +11,3 @@ const Logos = ({ logoName1, logoName2, logoName3 }) => {
   );
 };
 export default Logos;
-{
-  /* <div className="logos-continer"><div>  */
-}

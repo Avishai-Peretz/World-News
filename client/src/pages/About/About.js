@@ -1,8 +1,7 @@
 import "./About.css";
 import Logos from "../Logos/Logos.js";
-
-import { useState, useEffect, useContext } from "react";
-import { myContext } from "../context/language.js";
+import { useEffect, useContext } from "react";
+import { myContext } from "../../context/language.js";
 import React from "react";
 
 const MainPage = () => {
@@ -158,48 +157,10 @@ const MainPage = () => {
 
   useEffect(() => {}, []);
 
-  const displayInfo = (info) => {
-    let data = info.map((item, i) => <p key={i}>{item}</p>);
-    return data;
-  };
-
-  const displaySites = (sites) => {
-    let data = sites.map((item, index) => {
-      return (
-        <div key={item.name}>
-          <a href={item.link}>
-            <div className={` img ${item.name}`}></div>
-          </a>
-        </div>
-      );
-    });
-    return data;
-  };
-
-  const displayTeam = (team) => {
-    let data = team.map((item, i) => {
-      return (
-        <div key={i} className="team-item">
-          <span>{item.name}</span>
-        </div>
-      );
-    });
-    return data;
-  };
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  return isLoading ? (
-    <div className="spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  ) : (
+  return (
     <div className="main-container">
       <div className="logos-container">
-        <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" />
+        <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" className="display" />
       </div>
       <div className="content">
         <div className="intro">{intro}</div>
@@ -215,7 +176,7 @@ const MainPage = () => {
         </div>
       </div>
       <div className="logos-container">
-        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" />
+        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" className="display" />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useEffect } from "react";
-import { myContext } from "../context/language.js";
+import { myContext } from "../../context/language.js";
 import { Link } from "react-router-dom";
 import "./Header.css";
 const Header = () => {

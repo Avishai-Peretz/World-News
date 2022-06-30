@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { myContext } from "../context/language.js";
+import { myContext } from "../../context/language.js";
 import "./ArticlePage.css";
 
 export default function ArticlePage(props) {
@@ -18,13 +18,8 @@ export default function ArticlePage(props) {
   };
 
   useEffect(() => {
-    topArticles();
+   (() =>{ topArticles()})();
   }, [article, lang, topArticles]);
-  console.log(
-    "---------------------------------------------------------------------------",
-    article,
-    lang
-  );
 
   const getLang = () => {
     let data = "";
@@ -51,7 +46,7 @@ export default function ArticlePage(props) {
       <div className="article-page-container">
         <div className="content-container">
           <div>
-            <div articleName={article.name}></div>
+            <div article-name={article.name}></div>
           </div>
           <div>
             <img className="article-page-img" src={article.img} alt="img" />

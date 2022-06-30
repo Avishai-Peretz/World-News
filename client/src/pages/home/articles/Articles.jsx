@@ -1,10 +1,10 @@
 import React from "react";
 import "./articles.css";
-import  "../media/albayan.png"
-import  "../media/ynet.png"
-import  "../media/dw.png"
-import  "../media/moscowtimes.png"
-import  "../media/panet.png"
+import  "../../../media/albayan.png"
+import  "../../../media/ynet.png"
+import  "../../../media/dw.png"
+import  "../../../media/moscowtimes.png"
+import  "../../../media/panet.png"
 
 
 const Article = ({ article, lang }) => {
@@ -25,12 +25,11 @@ const Article = ({ article, lang }) => {
     return data;
   };
   const data = getLang();
-  console.log(article);
   return (
     <>
     <div className="article-container">
       <div>
-        <div articleName={article.name}></div>
+        <div article-name={article.name}></div>
       </div>
       <div>
         <img className="article-img" src={article.img} alt="img" />
@@ -57,12 +56,9 @@ const Article = ({ article, lang }) => {
         </p>
       </div>
     </div>
-    <div className="article-container-mobile">
-      <div>
-        <div className="website-img" articleName={article.name}></div>
-          <img className="article-img" src={article.img} alt="img" />      
-        </div>
-        <div>
+    <div className="article-container-mobile">       
+        <div className="website-img" article-name={article.name}></div>
+        <img className="article-img" src={article.img} alt="img" />      
         <div>
           <h2
             className="title"
@@ -85,8 +81,6 @@ const Article = ({ article, lang }) => {
           </p>
           </div>
         </div>
-        
-    </div>
     </>
   );
 };

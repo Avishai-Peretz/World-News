@@ -7,7 +7,7 @@ html {
   align-items: center;
   justify-content: flex-start;
   background: url(../../media/bgImage.png) no-repeat center center/cover;
-  height: 190vh;
+  min-height: 100vh;
 }
 .languges ul {
   color: white;
@@ -27,6 +27,7 @@ html {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 10px;
+  margin: 50px 0;
 }
 .article-link {
   display: flex;
@@ -39,5 +40,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
   }
+  
 }

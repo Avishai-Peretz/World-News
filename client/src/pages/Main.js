@@ -14,8 +14,7 @@ function Main() {
 
   useEffect(() => {
     topArticles();
-  }, []);
-  console.log(sixTopArticles);
+  });
 
   return (
     

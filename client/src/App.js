@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import "./App.css";
 import Main from "./pages/Main.js";
-import About from "./About/About.js";
-import Header from "./Header/Header.js";
-import ArticlePage from "./ArticlePage/ArticlePage.js";
+import About from "./pages/About/About.js";
+import Header from "./pages/Header/Header.js";
+import ArticlePage from "./pages/ArticlePage/ArticlePage.js";
 import ContextProvider from "./context/language.js";
 
 function App() {
