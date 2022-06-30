@@ -16,12 +16,14 @@ Back-End - Matan
 <hr>
 Back&Front - Amir
 <hr>
-Front-End - Amir
+Front-End - Dima
 <hr>
 Front-End - Sarona
 <hr>
 Front-End - Eden
 <hr>
 <h1>Project Diagrams:</h1>
-<img src="./world-news-dIagram.png">
-<img src="./project-intro.pdf">
+<img src="./assets/world-news-dIagram.png">
+<img src="./assets/project-intro-1.pdf">
+<img src="./assets/project-intro-2.pdf">
+<img src="./assets/project-intro-3.pdf">

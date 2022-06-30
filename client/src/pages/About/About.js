@@ -48,7 +48,7 @@ const MainPage = () => {
         {
           name: "Avishai",
           img: "./images/user.png",
-          text: "We are 6 group members who met through a programming bootcamp. Our values & identities stem from different roots of religions & cultures together with our other class mates. So, this week’s mission was to find an idea that represents & connects us all on a deeper level. Our team: Avishai Peretz, Dima Din, Sharona Tokatli, Eden Kricheli, Matan Waiss, Amir Gilboa.",
+          text: "We are 6 group members who met through a programming bootcamp. Our values & identities stem from different roots of religions & cultures together with our other class mates. So, this week’s mission was to find an idea that represents & connects us all on a deeper level.",
         },
         { name: "Dmitry", img: "./images/user.png" },
         { name: "Amir", img: "./images/user.png" },
@@ -170,7 +170,7 @@ const MainPage = () => {
             <h2>Team Leader - {team[1].name}</h2>
             <h3>Back-End - {team[4].name}</h3>
             <h3>Back&Front - {team[3].name}</h3>
-            <h3>Front-End - {team[3].name}</h3>            
+            <h3>Front&Back - {team[2].name}</h3>            
             <h3>Front-End - {team[6].name}</h3>            
             <h3>Front-End - {team[5].name}</h3>            
         </div>
