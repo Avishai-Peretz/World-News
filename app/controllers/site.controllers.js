@@ -9,7 +9,7 @@ import { getDwData } from "../dw.js";
 const getSitesData = async (req, res) => {
   try {
     let data = await Site.find();
-    if (!data || Math.abs(new Date() - data[0].createdAt) / 365 > 24) {
+    if (!data || Math.abs(new Date() - data[0].createdAt) / 36e5 > 4) {
       await Site.deleteMany();
       await getYnetData();
       await getAlbayanData();
