@@ -71,7 +71,7 @@ const Header = () => {
       </nav>
       <div>
         <Link to="/about" className="link-display" style={{ textDecoration: 'none' }}>{aboutLink}</Link>
-        <div className="copyright">© Copyright AppleSeeds || jun 2022</div>
+        <div className="copyright">© Copyright AppleSeeds | jun 2022</div>
       </div>
       </>
   );
