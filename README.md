@@ -21,3 +21,7 @@ Front-End - Amir
 Front-End - Sarona
 <hr>
 Front-End - Eden
+<hr>
+<h1>Project Diagrams:</h1>
+<img src="./world-news-dIagram.png">
+<img src="./project-intro.pdf">
