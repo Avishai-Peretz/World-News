@@ -27,7 +27,7 @@ html {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 10px;
-  margin: 50px 0;
+  margin: 20px 0 50px 0;
 }
 .article-link {
   display: flex;
@@ -40,7 +40,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin: 0px 0 85px 0;
   }
   
 }

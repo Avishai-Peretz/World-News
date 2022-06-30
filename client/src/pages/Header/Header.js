@@ -68,8 +68,11 @@ const Header = () => {
       </span>
 
       <button onClick={showNavBar} className="nav-btn"></button>
-    </nav>
-      <div className="copyright">© Copyright AppleSeeds || jun 2022</div>
+      </nav>
+      <div>
+        <Link to="/about" className="link-display" style={{ textDecoration: 'none' }}>{aboutLink}</Link>
+        <div className="copyright">© Copyright AppleSeeds || jun 2022</div>
+      </div>
       </>
   );
 };
