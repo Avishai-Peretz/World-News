@@ -15,16 +15,27 @@
   width: 40vw;
   display: flex;
   flex-direction: column;
-  opacity: 0.8;
-  margin: 0 0 50px 0;
+  opacity: 0.9;
+  margin: 0 0 100px 0;
 }
 .intro {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
-
+.team-member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.team-member h3{
+  display: block;
+  width: 360px;
+}
 .team-member a{
+  width: 360px;
+  display: block;
   color: black;
   text-decoration: none;
 }
@@ -38,15 +49,32 @@
   padding: 1vw;
   line-height: 1.6;
 }
-@media (max-width: 820px) {
-  .content{
-    width: 90vw;
-    margin: 0 0 50px 0;
-  }
-}
 .linkedin {
   display: inline-block;
   width: 24px;
   height: 24px;
   background: url(../../media/linkedin.png) center center/cover no-repeat;
+}
+.github {
+  position: absolute;
+  background-color: gray;
+  bottom: 100px;
+  left: 30%;
+  width: 200px;
+  height: 200px;
+  background: url(../../media/github.png) center center/cover no-repeat;
+}
+
+@media (max-width: 820px) {
+  .content{
+    width: 90vw;
+    margin: 0 0 100px 0;
+  }
+  .github {
+    position: absolute;
+    bottom: 220px;
+    left: 15px;
+    width: 100px;
+    height: 100px;
+  }
 }

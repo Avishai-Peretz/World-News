@@ -9,12 +9,16 @@
 body {
   position: relative;
 }
-.copyright{
+.copyright-container{
   text-align: center;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   color: #ccc;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   bottom: 20px;
 }
 .main-link {
@@ -222,4 +226,12 @@ button[name="ar"]{
 .lang-btn:hover {
   transition: 0.2s;
   opacity: 0.7;
+}
+
+.github-bot {
+  background: url(../../media/github.png) center center/cover no-repeat;
+  bottom: 0;
+  left: 40%;
+  width: 45px;
+  height: 45px;
 }

@@ -168,18 +168,19 @@ const MainPage = () => {
             <h1>{team[0].aboutUs}</h1>
             <h2>{team[1].text}</h2>
         <div className="team-member" >           
-         <a href="https://www.linkedin.com/in/avishai-peretz-1828621aa/" target="_blank"><h3>Team Leader - {team[1].name} <div className="linkedin"></div></h3></a>
+         <a rel="noreferrer" href="https://www.linkedin.com/in/avishai-peretz-1828621aa/" target="_blank"><h3>Team Leader - {team[1].name} <div className="linkedin"></div></h3></a>
         </div>
-            <h3>Back-End - {team[4].name}</h3>
-            <h3>Back&Front - {team[3].name}</h3>
-            <h3>Front&Back - {team[2].name}</h3>                          
+            <h3 className="team-member">Back-End - {team[4].name}</h3>
+            <h3 className="team-member">Back&Front - {team[3].name}</h3>
+            <h3 className="team-member">Front&Back - {team[2].name}</h3>                          
         <div className="team-member" >           
-         <a href="https://www.linkedin.com/in/sharona-tokatli/" target="_blank"><h3>Front-End - {team[6].name} <div className="linkedin"></div></h3></a>
+         <a rel="noreferrer" href="https://www.linkedin.com/in/sharona-tokatli/" target="_blank"><h3>Front-End - {team[6].name} <div className="linkedin"></div></h3></a>
         </div>
-        <div className="team-member" >           
-         <a href="https://www.linkedin.com/in/eden-kricheli-2677b4236/" target="_blank"><h3>Front-End - {team[5].name} <div className="linkedin"></div></h3></a>
+        <div  className="team-member" >           
+         <a rel="noreferrer" href="https://www.linkedin.com/in/eden-kricheli-2677b4236/" target="_blank"><h3>Front-End - {team[5].name} <div className="linkedin"></div></h3></a>
         </div>
         </div>
+        <a rel="noreferrer" href="https://github.com/mtn4/Hackathon" target="_blank" ><div className="github"></div></a>
       </div>
       <div className="logos-container">
         <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" className="display" />

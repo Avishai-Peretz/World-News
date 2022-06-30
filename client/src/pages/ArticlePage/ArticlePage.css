@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 100px 0;
 }
 .content-container * {
     margin: 10px;
@@ -116,7 +116,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 0px 0 85px 0.8%;
+      margin: 0px 0 125px 0.8%;
     }
     
   }
@@ -128,6 +128,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 20px 0 85px 0;
+        margin: 20px 0 125px 0;
     }
 }
