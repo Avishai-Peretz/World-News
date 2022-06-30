@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 body {
   font-size: 10px;
@@ -27,7 +27,7 @@ h3 {
 }
 p {
   font-size: 1.2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 .btns {
   margin: 5px auto;
