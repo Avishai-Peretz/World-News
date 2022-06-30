@@ -43,6 +43,24 @@ const Homepage = () => {
             : <div className="loader-container"><div class="loader"></div></div>}
             </Splide>
       </div>
+      <div className="articles-container-mobile">
+        {getSixTopArticles
+          ? getSixTopArticles.map((article) => {
+              const topArticle = article;
+              return (
+
+                  <Link key={"link" + topArticle._id} to={`/article/${article._id}`} className="article-link" style={{ textDecoration: 'none' }}>
+                    <Article
+                      key={topArticle._id}
+                      lang={lang}
+                      article={topArticle}
+                      />
+                  </Link>
+              );
+            })
+            : <div className="loader-container"><div class="loader"></div></div>
+            }
+      </div>
     </div>
   );
 };
