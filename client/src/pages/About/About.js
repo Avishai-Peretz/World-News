@@ -5,8 +5,7 @@ import { myContext } from "../../context/language.js";
 import React from "react";
 
 const MainPage = () => {
-
-  const { lang} = useContext(myContext);
+  const { lang } = useContext(myContext);
 
   let about = {
     sites: [
@@ -44,7 +43,7 @@ const MainPage = () => {
 
     team: {
       en: [
-        {aboutUs: "Abou Us"},
+        { aboutUs: "Abou Us" },
         {
           name: "Avishai",
           img: "./images/user.png",
@@ -57,20 +56,20 @@ const MainPage = () => {
         { name: "Sarona", img: "./images/user.png" },
       ],
       he: [
-        {aboutUs: "קצת עלינו"},
+        { aboutUs: "קצת עלינו" },
         {
           name: "אבישי",
           img: "./images/user.png",
           text: " אנחנו שישה חברי קבוצה שנפגשו דרך הבוטקאמפ לתכנות של עמותת תפוחת הערכים והזהויות שלנו נובעים משורשים שונים של דתות ותרבויות. המשימה של השבוע היתה למצוא רעיון שמייצג ומחבר את כולנו ברמה עמוקה יותר.",
         },
         { name: "דימטרי", img: "./images/user.png" },
-        { name: "עמיר", img: "./images/user.png" },
+        { name: "אמיר", img: "./images/user.png" },
         { name: "מתן", img: "./images/user.png" },
         { name: "עדן", img: "./images/user.png" },
         { name: "שרונה", img: "./images/user.png" },
       ],
       ar: [
-        {aboutUs: "معلومات عنا"},
+        { aboutUs: "معلومات عنا" },
         {
           name: "Avishai",
           img: "./images/user.png",
@@ -83,7 +82,7 @@ const MainPage = () => {
         { name: "Sarona", img: "./images/user.png" },
       ],
       ru: [
-        {aboutUs: "о нас"},
+        { aboutUs: "о нас" },
         {
           name: "Avishai",
           img: "./images/user.png",
@@ -134,58 +133,115 @@ const MainPage = () => {
     let team = "";
     let intro = "";
     if (about) {
-        if (lang === "he") {
-          team = about.team.he;         
-          intro = about.intro.he;
-        }
-        if (lang === "en") {
-          team = about.team.en;
-          intro = about.intro.en;
-        }
-        if (lang === "ru") {
-          team = about.team.ru;
-          intro = about.intro.ru;
-        }
-        if (lang === "ar") {
-          team = about.team.ar;
-          intro = about.intro.ar;
-        }
-        return {team, intro};
+      if (lang === "he") {
+        team = about.team.he;
+        intro = about.intro.he;
+      }
+      if (lang === "en") {
+        team = about.team.en;
+        intro = about.intro.en;
+      }
+      if (lang === "ru") {
+        team = about.team.ru;
+        intro = about.intro.ru;
+      }
+      if (lang === "ar") {
+        team = about.team.ar;
+        intro = about.intro.ar;
+      }
+      return { team, intro };
     }
-  }
-  const {team, intro} = getLang(); 
+  };
+  const { team, intro } = getLang();
 
   useEffect(() => {}, []);
 
   return (
     <div className="main-container">
       <div className="logos-container">
-        <Logos logoName1="Ynet" logoName2="Albayan" logoName3="Panet" className="display" />
+        <Logos
+          logoName1="Ynet"
+          logoName2="Albayan"
+          logoName3="Panet"
+          className="display"
+        />
       </div>
       <div className="content">
         <div className="intro">{intro}</div>
         <div className="aboutUs">
-            <h1>{team[0].aboutUs}</h1>
-            <h2>{team[1].text}</h2>
-        <div className="team-member" >           
-         <a rel="noreferrer" href="https://www.linkedin.com/in/avishai-peretz-1828621aa/" target="_blank"><h3>Team Leader - {team[1].name} <div className="linkedin"></div></h3></a>
+          <h1>{team[0].aboutUs}</h1>
+          <h2>{team[1].text}</h2>
+          <div className="team-member">
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/avishai-peretz-1828621aa/"
+              target="_blank"
+            >
+              <h3>
+                Team Leader - {team[1].name} <div className="linkedin"></div>
+              </h3>
+            </a>
+          </div>
+          <div className="team-member">
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/matan-waiss/"
+              target="_blank"
+            >
+              <h3>
+                Back-End - {team[4].name} <div className="linkedin"></div>
+              </h3>
+            </a>
+          </div>
+          <div className="team-member">
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/mwlite/in/%D7%90%D7%9E%D7%99%D7%A8-%D7%92%D7%9C%D7%91%D7%95%D7%A2-11b765226"
+              target="_blank"
+            >
+              <h3>
+                Back&Front - {team[3].name} <div className="linkedin"></div>
+              </h3>
+            </a>
+          </div>
+          <div className="team-member">
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/dmitri-denysyuk-058b19219"
+              target="_blank"
+            >
+              <h3>
+                Front&Back - {team[2].name} <div className="linkedin"></div>
+              </h3>
+            </a>
+          </div>
+          <div className="team-member">
+            <a
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/eden-kricheli-2677b4236/"
+              target="_blank"
+            >
+              <h3>
+                Front-End - {team[5].name} <div className="linkedin"></div>
+              </h3>
+            </a>
+          </div>
         </div>
-            <h3 className="team-member">Back-End - {team[4].name}</h3>
-            <h3 className="team-member">Back&Front - {team[3].name}</h3>                          
-        <div className="team-member" >           
-         <a rel="noreferrer" href="https://www.linkedin.com/in/dmitri-denysyuk-058b19219" target="_blank"><h3>Front&Back - {team[2].name} <div className="linkedin"></div></h3></a>
-        </div>
-        <div className="team-member" >           
-         <a rel="noreferrer" href="https://www.linkedin.com/in/sharona-tokatli/" target="_blank"><h3>Front-End - {team[6].name} <div className="linkedin"></div></h3></a>
-        </div>
-        <div  className="team-member" >           
-         <a rel="noreferrer" href="https://www.linkedin.com/in/eden-kricheli-2677b4236/" target="_blank"><h3>Front-End - {team[5].name} <div className="linkedin"></div></h3></a>
-        </div>
-        </div>
-        <a rel="noreferrer" href="https://github.com/mtn4/Hackathon" target="_blank" ><div className="github"></div></a>
+        <a
+          rel="noreferrer"
+          href="https://github.com/mtn4/Hackathon"
+          target="_blank"
+        >
+          <div className="github"></div>
+        </a>
       </div>
       <div className="logos-container">
-        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" className="display"/>
+        <Logos
+          logoName1="Themoscowtimes"
+          logoName2="Jansatta"
+          logoName3="dw"
+          className="display"
+        />
       </div>
     </div>
   );
