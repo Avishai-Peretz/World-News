@@ -24,6 +24,6 @@ Front-End - Eden
 <hr>
 <h1>Project Diagrams:</h1>
 <img src="./assets/world-news-dIagram.png">
-<img src="./assets/project-intro-1.pdf">
-<img src="./assets/project-intro-2.pdf">
-<img src="./assets/project-intro-3.pdf">
+<img src="./assets/project-intro-1.png">
+<img src="./assets/project-intro-2.png">
+<img src="./assets/project-intro-3.png">
