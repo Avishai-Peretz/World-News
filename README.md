@@ -6,7 +6,9 @@
 </h3>
 <hr>
 <h1>About Us</h1>
+<h3>
 We are 6 group members who met through a programming bootcamp. Our values & identities stem from different roots of religions & cultures together with our other class mates. So, this week’s mission was to find an idea that represents & connects us all on a deeper level.
+</h3>
 <hr>
 Team Leader - Avishai
 <hr>
