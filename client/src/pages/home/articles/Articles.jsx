@@ -46,7 +46,7 @@ const Article = ({ article, lang }) => {
         </h2>
       </div>
       <div>
-        <p
+        <p className="description"
           style={{
             whiteSpace: "pre-wrap",
             direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",

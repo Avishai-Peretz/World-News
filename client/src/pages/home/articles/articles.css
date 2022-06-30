@@ -15,6 +15,9 @@
     position: relative;
         z-index: 2;
 }
+.article-container  .title , .article-container .description{
+    padding: 20px;
+}
 .article-container-mobile{
     display: none;
 }
