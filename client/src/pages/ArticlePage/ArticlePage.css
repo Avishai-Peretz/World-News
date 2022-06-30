@@ -65,7 +65,7 @@
 
 @media (max-width: 820px) {
     .content-container {
-        width: 60vw;
+        width: 95vw;
         display: flex ;
         flex-direction: column;
         justify-content: center;
