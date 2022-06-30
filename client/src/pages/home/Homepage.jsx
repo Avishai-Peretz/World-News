@@ -6,12 +6,13 @@ import "./homepage.css";
 
 const Homepage = () => {
   const { lang, sixTopArticles } = useContext(myContext);
+  const getSixTopArticles = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : sixTopArticles; 
 
   return (
     <div className="page">
       <div className="articles-container">
-        {sixTopArticles
-          ? sixTopArticles.map((article) => {
+        {getSixTopArticles
+          ? getSixTopArticles.map((article) => {
               const topArticle = article;
               return (
                 <Link key={"link" + topArticle._id} to={`/article/${article._id}`} className="article-link" style={{ textDecoration: 'none' }}>

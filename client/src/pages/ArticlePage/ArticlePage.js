@@ -10,16 +10,23 @@ export default function ArticlePage(props) {
 
   const [article, setArticle] = useState();
   const topArticles = async () => {
-    const articles = await axios.get(`${URI}`);
-    const articlePage = articles
+    const fetchArticle = async () =>{
+      const articles = await axios.get(`${URI}`);
+      const articlePage = articles
       ? articles.data.find(({ _id }) => _id === articleId)
       : null;
-    setArticle(articlePage);
+      setArticle(articlePage);
+    }
+    const localArticle = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : null;
+    const articlePage = localArticle
+      ? localArticle.find(({ _id }) => _id === articleId)
+      : null;
+    localArticle ? setArticle(articlePage) : fetchArticle();
   };
 
   useEffect(() => {
    (() =>{ topArticles()})();
-  }, [article, lang, topArticles]);
+  }, []);
 
   const getLang = () => {
     let data = "";
@@ -70,5 +77,5 @@ export default function ArticlePage(props) {
         </div>
       </div>
     );
-  } else return <div className="loader-container"><div class="loader"></div></div>;
+  } else return <div className="loader-container"><div className="loader"></div></div>;
 }

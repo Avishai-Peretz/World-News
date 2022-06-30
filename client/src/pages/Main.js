@@ -9,6 +9,8 @@ function Main() {
 
   const topArticles = async () => {
     const articles = await axios.get(`${URI}`);
+    const topSix = JSON.stringify(articles.data)
+    localStorage.setItem("sixTopArticles", topSix);
     setTopArticles(articles.data);
   };
 
