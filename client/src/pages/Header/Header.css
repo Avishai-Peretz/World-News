@@ -174,7 +174,7 @@ nav ul li a:hover::before {
     opacity: 1;
   }
   .header-continer{
-    height:18vh ;
+    height:110px ;
     flex-direction: column;
     opacity: 0.9;
   }
