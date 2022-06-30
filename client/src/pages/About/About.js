@@ -185,7 +185,7 @@ const MainPage = () => {
         <a rel="noreferrer" href="https://github.com/mtn4/Hackathon" target="_blank" ><div className="github"></div></a>
       </div>
       <div className="logos-container">
-        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" className="display" />
+        <Logos logoName1="Themoscowtimes" logoName2="Jansatta" logoName3="dw" className="display"/>
       </div>
     </div>
   );
