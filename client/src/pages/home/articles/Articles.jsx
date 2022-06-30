@@ -35,7 +35,7 @@ const Article = ({ article, lang }) => {
         <img className="article-img" src={article.img} alt="img" />
       </div>
       <div>
-        <h2
+        <h3
           className="title"
           style={{
             whiteSpace: "pre-wrap",
@@ -43,7 +43,7 @@ const Article = ({ article, lang }) => {
           }}
         >
           {data.title}
-        </h2>
+        </h3>
       </div>
       <div>
         <p className="description"
