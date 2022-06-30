@@ -6,6 +6,17 @@
   flex-direction: row;
   justify-content: space-between;
 }
+body {
+  position: relative;
+}
+.copyright{
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  color: #ccc;
+  position: absolute;
+  bottom: 20px;
+}
 .main-link {
   display: flex;
   justify-content: center;

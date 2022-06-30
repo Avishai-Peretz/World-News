@@ -8,17 +8,7 @@ import ArticlePage from "./ArticlePage/ArticlePage.js";
 import ContextProvider from "./context/language.js";
 
 function App() {
-  // const { setTopArticles, URI } = useContext(myContext);
-
-  // const topArticles = async () => {
-  //   const articles = await axios.get(`${URI}`);
-  //   setTopArticles(articles.data);
-  // };
-
-  // useEffect(() => {
-  //   topArticles();
-  // }, []);
-
+  
   return (
     <ContextProvider>
       <BrowserRouter>

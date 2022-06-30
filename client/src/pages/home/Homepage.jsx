@@ -14,7 +14,7 @@ const Homepage = () => {
           ? sixTopArticles.map((article) => {
               const topArticle = article;
               return (
-                <Link to={`/article/${article._id}`} style={{ textDecoration: 'none' }}>
+                <Link to={`/article/${article._id}`} className="article-link" style={{ textDecoration: 'none' }}>
                   <Article
                     key={topArticle._id}
                     lang={lang}

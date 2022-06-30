@@ -46,6 +46,7 @@ const Header = () => {
   });
 
   return (
+    <>
     <nav className="header-continer">
       <ul ref={navRef}>
         <li>
@@ -68,6 +69,8 @@ const Header = () => {
 
       <button onClick={showNavBar} className="nav-btn"></button>
     </nav>
+      <div className="copyright">© Copyright AppleSeeds || jun 2022</div>
+      </>
   );
 };
 

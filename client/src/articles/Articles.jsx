@@ -59,8 +59,8 @@ const Article = ({ article, lang }) => {
     </div>
     <div className="article-container-mobile">
       <div>
-        <div articleName={article.name}></div>
-        <img className="article-img" src={article.img} alt="img" />
+        <div className="website-img" articleName={article.name}></div>
+          <img className="article-img" src={article.img} alt="img" />      
         </div>
         <div>
         <div>
@@ -85,6 +85,7 @@ const Article = ({ article, lang }) => {
           </p>
           </div>
         </div>
+        
     </div>
     </>
   );
