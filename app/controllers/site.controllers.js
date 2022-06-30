@@ -11,7 +11,7 @@ const getSitesData = async (req, res) => {
     let data = await Site.find();
     if (
       data.length === 0 ||
-      (data.length > 0 && Math.abs(new Date() - data[0].createdAt) / 36e5 > 0.1)
+      (data.length > 0 && Math.abs(new Date() - data[0].createdAt) / 36e5 > 4)
     ) {
       await Site.deleteMany();
       await getYnetData();
