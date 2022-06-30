@@ -11,10 +11,6 @@ const Header = () => {
     navRef.current.classList.toggle("responsive_nav");
     setNavToggle(!navToggle);
   };
-  const showLinks = () => {
-    navRef.current.classList.toggle("responsive_nav");
-    setNavToggle(!navToggle);
-  };
   const handleLanguage = (event) => {
     setLang(event.target.name);
   };
@@ -46,8 +42,8 @@ const Header = () => {
   };
   const { newsLink, aboutLink, title } = getLang();
   useEffect(() => {
-  getLang()
-  }, [])
+    getLang()
+  });
 
   return (
     <nav className="header-continer">
@@ -62,7 +58,7 @@ const Header = () => {
 
         <button onClick={showNavBar} className="nav-btn nav-close-btn"></button>
       </ul>
-      <h1>{title}</h1>
+      <Link to="/" className="main-link" ><h1>{title}</h1></Link>
       <span>
         <button onClick={handleLanguage} name="en"></button>
         <button onClick={handleLanguage} name="he"></button>

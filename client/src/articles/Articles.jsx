@@ -27,6 +27,7 @@ const Article = ({ article, lang }) => {
   const data = getLang();
   console.log(article);
   return (
+    <>
     <div className="article-container">
       <div>
         <div articleName={article.name}></div>
@@ -56,6 +57,36 @@ const Article = ({ article, lang }) => {
         </p>
       </div>
     </div>
+    <div className="article-container-mobile">
+      <div>
+        <div articleName={article.name}></div>
+        <img className="article-img" src={article.img} alt="img" />
+        </div>
+        <div>
+        <div>
+          <h2
+            className="title"
+            style={{
+              whiteSpace: "pre-wrap",
+              direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
+            }}
+          >
+            {data.title}
+          </h2>
+        </div>
+        <div>
+          <p
+            style={{
+              whiteSpace: "pre-wrap",
+              direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
+            }}
+          >
+            {data.description}
+          </p>
+          </div>
+        </div>
+    </div>
+    </>
   );
 };
 
