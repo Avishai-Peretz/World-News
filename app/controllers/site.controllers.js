@@ -9,19 +9,19 @@ import { getDwData } from "../dw.js";
 const getSitesData = async (req, res) => {
   try {
     let data = await Site.find();
-    if (
-      data.length === 0 ||
-      (data.length > 0 && Math.abs(new Date() - data[0].createdAt) / 36e5 > 4)
-    ) {
-      await Site.deleteMany();
-      await getYnetData();
-      await getAlbayanData();
-      await getPanetData();
-      await getMoscowTimesData();
-      await getNDTVData();
-      await getDwData();
-      data = await Site.find();
-    }
+    // if (
+    //   data.length === 0 ||
+    //   (data.length > 0 && Math.abs(new Date() - data[0].createdAt) / 36e5 > 4)
+    // ) {
+    //   await Site.deleteMany();
+    //   await getYnetData();
+    //   await getAlbayanData();
+    //   await getPanetData();
+    //   await getMoscowTimesData();
+    //   await getNDTVData();
+    //   await getDwData();
+    //   data = await Site.find();
+    // }
     return res.status(200).send(data);
   } catch (e) {
     return res.status(400).send(e.message.toString());
