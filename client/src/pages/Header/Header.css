@@ -1,0 +1,236 @@
+.header-continer {
+  width: 100vw;
+  background-color: darkblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 10;
+}
+body {
+  position: relative;
+}
+.copyright-container{
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  color: #ccc;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0px;
+}
+.main-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  width: 40vw;
+  position: relative;
+}
+
+.logo {
+  width: 10vw;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+nav ul li {
+  padding: 3vh 2vw;
+  list-style: none;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  font-size: 1.5vw;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 5%;
+  top: -10px;
+  background-color: #fff;
+  transition: ease-in-out 0.25s;
+}
+.main-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 5%;
+  top: 0;
+  background-color: #fff;
+  transition: ease-in-out 0.25s;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 5%;
+  right: 0;
+  bottom: -10px;
+  background-color: #fff;
+  transition: ease-in-out 0.25s;
+}
+.main-link::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 5%;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  transition: ease-in-out 0.25s;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+.main-link:hover::after {
+  width: 40vw;
+}
+nav ul li a:hover::before {
+  width: 100%;
+}
+.main-link:hover::before {
+  width: 40vw;
+}
+.nav-btn {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 4vh;
+}
+.link-display{
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .news-link {
+    display: none;
+  }
+  .about-link {
+    display: none;
+  }
+  .link-display{
+    background-color:darkblue;
+    width: 100vw;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    position: absolute;
+    bottom: 90px;
+  }
+  .logo {
+    margin-left: 2vw;
+  }
+  nav ul li {
+    padding: 10vw 0vw;
+  }
+  nav ul {
+    background-color: hsl(220 12% 20%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+  nav .responsive_nav {
+    transform: none;
+  }
+
+  .nav-close-btn {
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+  }
+  nav ul li a {
+    font-size: 3vh;
+  }
+  .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+  .header-continer{
+    flex-direction: column;
+    opacity: 0.9;
+  }
+  .main-link {
+    width: 100vw;
+  }
+  .content {
+    margin-bottom: 85px;
+  }
+  .main-link:hover::after {
+    width: 0;
+  }
+  .main-link:hover::before {
+    width: 0;
+  }
+}
+
+button[name="en"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../../media/usa.png) center center/cover no-repeat;
+}
+button[name="he"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../../media/israel.png) center center/cover no-repeat;
+}
+button[name="ru"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../../media/russia.png) center center/contain no-repeat;
+}
+button[name="ar"]{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../../media/ae.png) center center/cover no-repeat;
+}
+.lang-btn{
+  transition: 0.2s;
+}
+.lang-btn:hover {
+  transition: 0.2s;
+  opacity: 0.7;
+}
+
+.github-bot {
+  background: url(../../media/github.png) center center/cover no-repeat;
+  left: 40%;
+  width: 45px;
+  height: 45px;
+}

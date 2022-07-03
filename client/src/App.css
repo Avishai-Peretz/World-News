@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 10px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+  /* text-align: center; */
+}
+.btns {
+  margin: 5px auto;
+  width: fit-content;
+}
+.grid {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+button {
+  margin: 2px 5px;
+  border: none;
+  padding: 10px;
+  background-color: cyan;
+  border-radius: 4px;
+}
