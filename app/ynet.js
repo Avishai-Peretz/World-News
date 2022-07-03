@@ -9,7 +9,7 @@ export const getYnetData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.ynet.co.il/");
   await page.waitForSelector("h1.slotTitle > span:nth-child(1)", {
-    timeout: 100000,
+    timeout: 10000,
   });
   const firstPageInfo = await page.evaluate(() => {
     const title = document.querySelector(
@@ -21,7 +21,7 @@ export const getYnetData = async () => {
   });
   await page.click(".TopStory1280Componenta > div > div > div > div > a");
   await page.waitForSelector(".text_editor_paragraph.rtl", {
-    timeout: 100000,
+    timeout: 10000,
   });
   const grabContent = await page.evaluate(() => {
     const content = [...document.querySelectorAll(".text_editor_paragraph.rtl")]

@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import "./App.css";
-import Main from "./pages/Main.js";
 import About from "./pages/About/About.js";
 import Header from "./pages/Header/Header.js";
 import ArticlePage from "./pages/ArticlePage/ArticlePage.js";
 import ContextProvider from "./context/language.js";
+import Homepage from "./pages/home/Homepage";
 
 function App() {
   
@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" exact component={Main} />
+          <Route path="/" exact component={Homepage} />
           <Route path="/about" exact component={About} />
           <Route path="/article/:id" exact component={ArticlePage} />
         </Switch>

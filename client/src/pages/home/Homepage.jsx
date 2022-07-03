@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import axios from "axios";
 import Article from "./articles/Articles.jsx";
 import { Link } from "react-router-dom";
 import { myContext } from "../../context/language.js";
@@ -7,9 +8,23 @@ import { Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const Homepage = () => {
-  const { lang, sixTopArticles } = useContext(myContext);
-  const getSixTopArticles = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : sixTopArticles; 
+  
+  const { setTopArticles, sixTopArticles, URI, lang } = useContext(myContext);
+  
+  const topArticles = async () => {
+    localStorage.removeItem("sixTopArticles");
+    const articles = await axios.get(`${URI}`);
+    const topSix = JSON.stringify(articles.data)
+    localStorage.setItem("sixTopArticles", topSix);
+    setTopArticles(articles.data);
+  };
+  
+  useEffect(() => {
+    topArticles();
+  }, []);
 
+  const getSixTopArticles = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : sixTopArticles; 
+  
   return (
     <div className="page">
       <div className="articles-container">
@@ -40,7 +55,7 @@ const Homepage = () => {
                     </SplideSlide>
               );
             })
-            : <div className="loader-container"><div class="loader"></div></div>}
+            : <div className="loader-container"><div className="loader"></div></div>}
             </Splide>
       </div>
       <div className="articles-container-mobile">
@@ -58,7 +73,7 @@ const Homepage = () => {
                   </Link>
               );
             })
-            : <div className="loader-container"><div class="loader"></div></div>
+            : <div className="loader-container"><div className="loader"></div></div>
             }
       </div>
     </div>

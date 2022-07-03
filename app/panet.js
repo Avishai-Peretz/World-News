@@ -9,7 +9,7 @@ export const getPanetData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.panet.co.il/");
   await page.waitForSelector(".panet-title", {
-    timeout: 100000,
+    timeout: 10000,
   });
 
   const firstPageInfo = await page.evaluate(() => {
@@ -26,7 +26,7 @@ export const getPanetData = async () => {
   });
   await page.click("#topRightArticle > .panet-thumbnail-wrapper > a");
   await page.waitForSelector("h2.panet-title", {
-    timeout: 100000,
+    timeout: 10000,
   });
   const grabContent = await page.evaluate(() => {
     const content = [...document.querySelectorAll(".panet-main-content > p")]

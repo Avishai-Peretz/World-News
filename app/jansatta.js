@@ -9,11 +9,11 @@ export const getNDTVData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.jansatta.com/");
   await page.waitForSelector("article.category-national ", {
-    timeout: 10000,
+    timeout: 100000,
   });
   await page.click("article.category-national > figure > a");
   await page.waitForSelector(".wp-block-post-title", {
-    timeout: 10000,
+    timeout: 100000,
   });
   const firstPageInfo = await page.evaluate(() => {
     const title = document.querySelector("h1.wp-block-post-title").innerText;
