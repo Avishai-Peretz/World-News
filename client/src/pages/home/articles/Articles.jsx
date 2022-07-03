@@ -28,9 +28,9 @@ const Article = ({ article, lang }) => {
   return (
     <>
     <div className="article-container">
-      <div>
-        <div article-name={article.name}></div>
-      </div>
+        <div className="website-img-container">
+          <div className="website-img" article-name={article.name}></div>
+        </div>
       <div>
         <img className="article-img" src={article.img} alt="img" />
       </div>
@@ -56,8 +56,10 @@ const Article = ({ article, lang }) => {
         </p>
       </div>
     </div>
-    <div className="article-container-mobile">       
-        <div className="website-img" article-name={article.name}></div>
+      <div className="article-container-mobile">       
+        <div className="website-img-container">
+          <div className="website-img" article-name={article.name}></div>
+        </div>
         <img className="article-img" src={article.img} alt="img" />      
         <div>
           <h2
@@ -70,7 +72,7 @@ const Article = ({ article, lang }) => {
             {data.title}
           </h2>
         </div>
-        <div>
+        {/* <div>
           <p
             style={{
               whiteSpace: "pre-wrap",
@@ -79,7 +81,7 @@ const Article = ({ article, lang }) => {
           >
             {data.description}
           </p>
-          </div>
+          </div> */}
         </div>
     </>
   );

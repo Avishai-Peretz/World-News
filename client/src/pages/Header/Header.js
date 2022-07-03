@@ -49,15 +49,12 @@ const Header = () => {
     <>
     <nav className="header-continer">
       <ul ref={navRef}>
-        <li>
+        <li className="news-link">
           <Link to="/" style={{ textDecoration: 'none' }}>{newsLink}</Link>
         </li>
-        <li>
+        <li className="news-link">
           <Link to="/about" style={{ textDecoration: 'none' }}>{aboutLink}</Link>
         </li>
-
-
-        <button onClick={showNavBar} className="nav-btn nav-close-btn"></button>
       </ul>
       <Link to="/" className="main-link" ><h1>{title}</h1></Link>
       <span>

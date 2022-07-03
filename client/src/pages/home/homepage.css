@@ -1,14 +1,16 @@
 html {
   color: white;
 }
+body {
+  background-color: darkslategray;
+  min-height: 100%;
+}
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   /* background: url(../../media/bgImage.png) no-repeat center center/cover; */
-  background-color: darkslategray;
-  min-height: 89vh;
 }
 .languges ul {
   color: white;
