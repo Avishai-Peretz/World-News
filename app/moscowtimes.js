@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getMoscowTimesData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"]});
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] , headless: false});
   const page = await browser.newPage();
   await page.goto("https://www.themoscowtimes.com/");
   if(await page.waitForSelector(".article-excerpt-lead", { timeout: 10000,})) {

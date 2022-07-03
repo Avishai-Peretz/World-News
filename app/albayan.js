@@ -5,10 +5,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getAlbayanData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"] });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"] , headless: false });
   const page = await browser.newPage();
   await page.goto("https://www.albayan.ae/");
-  await page.waitForSelector(".albayan .world.first-child", {
+  await page.waitForSelector(".albayan.first-child", {
     timeout: 10000,
   });
   const firstPageInfo = await page.evaluate(() => {
