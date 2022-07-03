@@ -10,7 +10,7 @@ const getSitesData = async (req, res) => {
   try {
     let data = await Site.find();
     if (
-      data.length === 0
+       data.length === 0 || data.length < 5 || (data.length > 0 && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 4)
     ) {
       await Site.deleteMany();
       await getAlbayanData();
