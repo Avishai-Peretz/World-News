@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getYnetData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"] , headless: false });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.goto("https://www.ynet.co.il/");
   await page.waitForSelector("h1.slotTitle > span:nth-child(1)", {
