@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getDwData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"]  , headless: false });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.goto("https://www.dw.com/en/top-stories/s-9097");
   await page.waitForSelector("h2", {
