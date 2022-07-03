@@ -5,19 +5,20 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getAlbayanData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"] , headless: false });
   const page = await browser.newPage();
   await page.goto("https://www.albayan.ae/");
-  await page.waitForSelector("h2", {
+  await page.waitForSelector(".albayan .world.first-child", {
     timeout: 10000,
   });
   const firstPageInfo = await page.evaluate(() => {
-    const title = document.querySelectorAll("h2 > a")[1].innerText;
-    const img = document.querySelector(".fade-in").src;
-    const description = document.querySelector(".lead").innerText;
-    return { title, img, description };
+    debugger
+      const title = document.querySelectorAll("h2 > a")[1].innerText;
+      const img = document.querySelector(".media > a > .fade-in").src;
+      const description = document.querySelector(".lead").innerText || "";
+      return { title, img, description }
   });
-  await page.click("article > section > h2 > a");
+  await page.click(".albayan.world.first-child > article > section > h2 > a");
   await page.waitForSelector("h1.title", {
     timeout: 10000,
   });

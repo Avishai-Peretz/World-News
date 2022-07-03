@@ -14,12 +14,12 @@ const getSitesData = async (req, res) => {
       (data.length > 0 && Math.abs(new Date() - data[0].createdAt) / 36e5 > 4)
     ) {
       await Site.deleteMany();
-      await getYnetData();
       await getAlbayanData();
+      await getDwData();
+      await getYnetData();
       await getPanetData();
       await getMoscowTimesData();
       await getNDTVData();
-      await getDwData();
       data = await Site.find();
     }
     return res.status(200).send(data);
