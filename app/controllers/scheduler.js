@@ -9,7 +9,7 @@ const URI = (() => {
 })();
   
 const getScheduledSitesData = async () => {
-    const articles = await axios.get(`${URI}`);
+    const articles = await axios.get("/api");
 };
 
 getScheduledSitesData();
