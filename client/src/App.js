@@ -20,7 +20,7 @@ function App() {
 
   const topArticles = async () => {
     const getLocalArticles = localStorage.getItem('localArticles') ? JSON.parse(localStorage.getItem('localArticles')) : false;
-    if ( getLocalArticles.length < 5  || ((new Date()).getTime() - (new Date(getLocalArticles[0].localUpdateTime)).getTime())/ 60000 > 20) {
+    if (!getLocalArticles || getLocalArticles.length < 5 || ((new Date()).getTime() - (new Date(getLocalArticles[0].localUpdateTime)).getTime()) / 60000 > 20) {
       localStorage.removeItem('localArticles');
       const articles = await axios.get(`${URI}`);
       const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
