@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getAlbayanData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"] , headless: false });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"] });
   const page = await browser.newPage();
   await page.goto("https://www.albayan.ae/");
   await page.waitForSelector(".albayan .first-child", {

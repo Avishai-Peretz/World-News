@@ -5,23 +5,17 @@ import { getPanetData } from "../panet.js";
 import { getMoscowTimesData } from "../moscowtimes.js";
 import { getNDTVData } from "../jansatta.js";
 import { getDwData } from "../dw.js";
+import axios from "axios";
 
-const getSitesData = async (req, res) => {
-  try {
-    let data = await Site.find();
-    await Site.deleteMany();
-    await getAlbayanData();
-    await getDwData();
-    await getYnetData();
-    await getPanetData();
-    await getMoscowTimesData();
-    await getNDTVData();
-    data = await Site.find();
-    return res.status(200).send(data);
-  } catch (e) {
-    return res.status(400).send(e.message.toString());
-  }
+const URI = (() => {
+    if (process.env.NODE_ENV === "production") {
+      return "/api";
+    } else {
+      return "http://localhost:5050/api";
+    }
+  })();
+const getScheduledSitesData = async () => {
+    const articles = await axios.get(`${URI}`);
 };
 
-
-getSitesData();
+getScheduledSitesData();
