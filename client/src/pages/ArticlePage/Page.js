@@ -17,7 +17,8 @@ export default function Page(props) {
     useEffect(() => {
         topArticles();
         
-    }, [article, lang]);
+    }, [lang]);
+  
     console.log("---------------------------------------------------------------------------",article, lang);
     
     

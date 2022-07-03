@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { myContext } from "../../context/language.js";
 import "./ArticlePage.css";
 
-export default function ArticlePage(props) {
+export default function ArticlePage({ sixTopArticles }) {
+  
   const { lang, URI } = useContext(myContext);
   const { id: articleId } = useParams();
 
   const [article, setArticle] = useState();
+  
   const topArticles = async () => {
     const fetchArticle = async () =>{
       const articles = await axios.get(`${URI}`);
@@ -17,16 +19,10 @@ export default function ArticlePage(props) {
       : null;
       setArticle(articlePage);
     }
-    const localArticle = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : null;
-    const articlePage = localArticle
-      ? localArticle.find(({ _id }) => _id === articleId)
-      : null;
-    localArticle ? setArticle(articlePage) : fetchArticle();
+    const getLocalArticles = JSON.parse(localStorage.getItem('localArticles')).slice(1); 
+    const articlePage = getLocalArticles ? getLocalArticles.find(({ _id }) => _id === articleId) : null;
+    getLocalArticles ? setArticle(articlePage) : fetchArticle();
   };
-
-  useEffect(() => {
-   (() =>{ topArticles()})();
-  }, []);
 
   const getLang = () => {
     let data = "";
@@ -47,6 +43,10 @@ export default function ArticlePage(props) {
     }
   };
   const data = getLang();
+
+  useEffect(() => {
+    topArticles()
+   },[lang])
 
   if (article) {
     return (

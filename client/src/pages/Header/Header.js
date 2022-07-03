@@ -41,6 +41,7 @@ const Header = () => {
     return {newsLink, aboutLink, title};
   };
   const { newsLink, aboutLink, title } = getLang();
+  
   useEffect(() => {
     getLang()
   });

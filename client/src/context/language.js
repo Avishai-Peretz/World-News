@@ -14,6 +14,7 @@ function ContextProvider({ children }) {
   
   const [lang, setLang] = useState("he");
   const [sixTopArticles, setTopArticles] = useState();
+  
 
   return (
     <myContext.Provider

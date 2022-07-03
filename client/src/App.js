@@ -1,25 +1,49 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import React from "react";
-import "./App.css";
+import React, { useContext, useEffect } from "react";
+import axios from "axios";
 import About from "./pages/About/About.js";
 import Header from "./pages/Header/Header.js";
 import ArticlePage from "./pages/ArticlePage/ArticlePage.js";
-import ContextProvider from "./context/language.js";
 import Homepage from "./pages/home/Homepage";
+import { myContext } from "./context/language.js";
+import "./App.css";
 
 function App() {
   
+  const { setTopArticles, URI, sixTopArticles } = useContext(myContext);
+  
+  const saveToContext = () => {
+    const getLocalArticles = JSON.parse(localStorage.getItem('localArticles'));
+    const articlesList = getLocalArticles.slice(1)
+    return articlesList
+  };
+
+  const topArticles = async () => {
+    const getLocalArticles = localStorage.getItem('localArticles') ? JSON.parse(localStorage.getItem('localArticles')) : false;
+    if ( !getLocalArticles || Math.abs(new Date() - getLocalArticles[0].localUpdateTime) / 36e5 > 1) {
+      localStorage.removeItem('localArticles');
+      const articles = await axios.get(`${URI}`);
+      const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
+      localStorage.setItem("localArticles", localArticles);
+    }
+    setTopArticles(saveToContext());
+  };
+
+  useEffect(() => {
+    topArticles()
+  }, []);
+
+
   return (
-    <ContextProvider>
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" exact component={Homepage} />
+        
+          <Route path="/" exact component={Homepage}  />
           <Route path="/about" exact component={About} />
-          <Route path="/article/:id" exact component={ArticlePage} />
+          <Route path="/article/:id" exact component={ArticlePage}><ArticlePage sixTopArticles={sixTopArticles}  /></Route>
         </Switch>
       </BrowserRouter>
-    </ContextProvider>
   );
 }
 
