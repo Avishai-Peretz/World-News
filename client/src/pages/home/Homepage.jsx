@@ -22,7 +22,7 @@ const Homepage = () => {
   
   useEffect(() => {
     topArticles();
-  }, []);
+  }, [lang]);
 
   const getSixTopArticles = localStorage.getItem("sixTopArticles") ? JSON.parse(localStorage.getItem("sixTopArticles")) : sixTopArticles; 
   

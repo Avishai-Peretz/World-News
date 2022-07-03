@@ -2,7 +2,6 @@
     text-align: center;
     text-shadow: 1px 1px rgb(88, 88, 88);
     text-decoration: none;
-    background-color: rgba(204, 204, 204, 0.507);
     color: black;
     display: flex ;
     flex-direction: column;
@@ -25,18 +24,19 @@
     }
 
 .title {
-    background-color: rgba(136, 136, 136, 0.527);
+    background-color: #fff;
     padding: 10px 20px;
 }
 .article-container-mobile{
     display: none;
 }
 .article-container:hover {
-    background-color: rgba(238, 238, 238, 0.507);
+    padding: 10px;
 }
 
 .article-container p,.article-container-mobile  p {
-   background-color: rgba(136, 136, 136, 0.527);
+    background-color: #fff;
+    padding: 10px 20px;
 }
 .article-container .article-img{ 
     z-index: -1;
