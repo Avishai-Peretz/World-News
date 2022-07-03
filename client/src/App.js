@@ -20,7 +20,7 @@ function App() {
 
   const topArticles = async () => {
     const getLocalArticles = localStorage.getItem('localArticles') ? JSON.parse(localStorage.getItem('localArticles')) : false;
-    if ( !getLocalArticles || Math.abs(new Date() - getLocalArticles[0].localUpdateTime) / 36e5 > 1) {
+    if ( !getLocalArticles || ((new Date()).getTime() - (new Date(getLocalArticles[0].localUpdateTime)).getTime())/ 60000 > 20) {
       localStorage.removeItem('localArticles');
       const articles = await axios.get(`${URI}`);
       const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     topArticles()
-  }, [lang]);
+  }, [,lang]);
 
 
   return (
@@ -41,7 +41,7 @@ function App() {
         
           <Route path="/" exact component={Homepage}  />
           <Route path="/about" exact component={About} />
-          <Route path="/article/:id" exact component={ArticlePage}><ArticlePage sixTopArticles={sixTopArticles}  /></Route>
+          <Route path="/article/:id" exact ><ArticlePage sixTopArticles={sixTopArticles}  /></Route>
         </Switch>
       </BrowserRouter>
   );

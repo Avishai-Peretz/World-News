@@ -9,10 +9,9 @@ import "./homepage.css";
 const Homepage = () => {
   
   const { sixTopArticles, lang } = useContext(myContext);
-  
+ 
   const getSixTopArticles = localStorage.getItem("localArticles") ? JSON.parse(localStorage.getItem("localArticles")) : sixTopArticles;
-  console.log("sixTopArticles: " + sixTopArticles)
-    
+  
   useEffect(() => {
   }, [lang]);
 
