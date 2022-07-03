@@ -27,13 +27,14 @@ const Homepage = () => {
           width: "100vw",
           height: "70vh",
           gap   : '3rem',
-          type: 'loop',
+          type: 'slider',
           padding: '0rem',
           perPage: 3,
-          // perMove: 3,
-          focus  : 'start',
+          perMove: 3,
+          // focus  : 'start',
           arrow: "splide__arrows arrows-c",
-          wheel: true,
+              wheel: true,
+              speed: 2500,
         } }
         >
           {

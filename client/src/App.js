@@ -10,7 +10,7 @@ import "./App.css";
 
 function App() {
   
-  const { setTopArticles, URI, sixTopArticles } = useContext(myContext);
+  const { setTopArticles, URI, sixTopArticles, lang } = useContext(myContext);
   
   const saveToContext = () => {
     const getLocalArticles = JSON.parse(localStorage.getItem('localArticles'));
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     topArticles()
-  }, []);
+  }, [lang]);
 
 
   return (
