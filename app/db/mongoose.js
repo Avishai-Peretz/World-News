@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-const URL = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.rbkdyi2.mongodb.net/?retryWrites=true&w=majority`;
+const URL = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@myfirstcluster.4advp.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.connect(URL, (error, mongoConnectionInstance) => {
   if (error) throw Error("Mongoose Connection!!, Error: " + error);
