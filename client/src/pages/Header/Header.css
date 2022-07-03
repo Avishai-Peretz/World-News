@@ -1,7 +1,7 @@
 .header-continer {
   height: 11vh;
   width: 100vw;
-  background-color: hsl(220 12% 20%);
+  background-color: darkblue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -131,7 +131,7 @@ nav ul li a:hover::before {
     font-size: 5px;
   }
   .link-display{
-    background-color:hsl(220 12% 20%);
+    background-color:rgb(45, 54, 57);
     width: 100vw;
     color: white;
     font-weight: bold;

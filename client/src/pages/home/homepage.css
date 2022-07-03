@@ -7,7 +7,7 @@ html {
   align-items: center;
   justify-content: center;
   /* background: url(../../media/bgImage.png) no-repeat center center/cover; */
-  background:gray;
+  background-color: darkslategray;
   min-height: 89vh;
 }
 .languges ul {
@@ -20,12 +20,14 @@ html {
 #he {
   background: url(../../media/israel.png) center center/cover;
 }
-.articles-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 98%;
-  margin: 10px 0 100px 20px;
+
+.articles-container{
+  height: 70vh;
+  margin-bottom: 135px;
+}
+
+.articles-container > div {
+  margin-bottom: 70px;
 }
 .article-link {
   display: flex;
@@ -98,4 +100,27 @@ html {
     margin: 0px 0 125px 0.8%;
   }
   
+}
+.splide__arrow{
+  width: 50px !important;
+  height:91% !important;
+  border-radius: 0 !important;
+}
+.splide__arrow > svg{
+  width: 100px !important;
+  height: 100px !important;
+}
+.splide__arrow--prev {
+ left: 0 !important;
+ margin: 0 !important;
+ background-color: darkred !important;
+ opacity: 1 !important;
+ /* border-radius: 10px 0 0 10px !important; */
+}
+.splide__arrow--next {
+  right: 0 !important;
+  margin: 0 !important;
+  background-color: darkred !important;
+  opacity: 1 !important;
+  /* border-radius: 0 10px 10px 0 !important; */
 }
