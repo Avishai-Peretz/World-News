@@ -19,8 +19,8 @@ export default function ArticlePage({ sixTopArticles }) {
       : null;
       setArticle(articlePage);
     }
-    const getLocalArticles = JSON.parse(localStorage.getItem('localArticles')).slice(1); 
-    const articlePage = getLocalArticles ? getLocalArticles.find(({ _id }) => _id === articleId) : null;
+    const getLocalArticles =localStorage.getItem('localArticles') ? JSON.parse(localStorage.getItem('localArticles')).slice(1): false; 
+    const articlePage = getLocalArticles ? getLocalArticles.find(({ _id }) => _id === articleId) : false;
     getLocalArticles ? setArticle(articlePage) : fetchArticle();
   };
 
