@@ -9,8 +9,15 @@ import { getDwData } from "../dw.js";
 
 
 const getArticles = async () => {
+  const URI = (() => {
+    if (process.env.NODE_ENV === "production") {
+      return "/api";
+    } else {
+      return "http://localhost:5050/api";
+    }
+  })();
   try {
-    const article = await axios.get(`http://localhost:5050/api`);
+    const article = await axios.get(URI);
     console.log(".............................................................",article.length);
     return article.data;
   }

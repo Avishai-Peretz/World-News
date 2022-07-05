@@ -8,8 +8,10 @@ import { getNDTVData } from "../jansatta.js";
 import { getDwData } from "../dw.js";
 
 
-const getScheduledSitesData = async (req, res) => {
-  try {
+(async (req, res) => {
+    console.log("func")
+    try {
+        console.log("try")
     let data = await Site.find();    
     const getTheArticles =await getArticles();
     const articles = getTheArticles ? getTheArticles : [];
@@ -25,13 +27,10 @@ const getScheduledSitesData = async (req, res) => {
       // await getNDTVData();
       data = await Site.find();
     }
+    console.log("success");
   } catch (e) {
+      console.log("not success");
     throw new Error(e);
   }
-  console.log("success");
-};
+})()
 console.log("run")
-getScheduledSitesData();
-export default getScheduledSitesData;
-
-
