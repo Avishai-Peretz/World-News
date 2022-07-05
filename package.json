@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "update": "node ./app/controllers/update.js",
     "start": "node index.js",
     "client": "npm start --prefix client",
     "server": "nodemon index.js",

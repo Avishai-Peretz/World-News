@@ -9,10 +9,10 @@ import { getDwData } from "../dw.js";
 
 
 (async (req, res) => {
-  try {
-    let data = await Site.find();    
-    const getTheArticles =await getArticles();
-    const articles = getTheArticles ? getTheArticles : [];
+    try {
+        console.log("try")
+        let data = await Site.find();    
+        console.log("find")
       await getAlbayanData();
       console.log("1")
       await getPanetData();
