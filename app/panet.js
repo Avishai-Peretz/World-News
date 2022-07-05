@@ -5,7 +5,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getPanetData = async () => {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"], headless: true });
+  try {
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"], headless: true });
   const page = await browser.newPage();
   await page.goto("https://www.panet.co.il/");
   await page.waitForSelector(".panet-title", {
@@ -24,7 +25,7 @@ export const getPanetData = async () => {
     ).innerText;
     return { title, img, description };
   });
-  await page.click("#topRightArticle > .panet-thumbnail-wrapper > a > img");
+  await page.click("#topRightArticle > .panet-title > a ");
   await page.waitForSelector(".panet-main-content", {
     timeout: 30000,
   });
@@ -36,7 +37,7 @@ export const getPanetData = async () => {
     return content;
   });
   await browser.close();
-  const compare =await Site.find({ title: firstPageInfo.title })
+  const compare = await Site.find( {img: firstPageInfo.img} )
   if (compare.length === 0) {
       const body = {
         name: "panet",
@@ -94,5 +95,6 @@ export const getPanetData = async () => {
       const site = new Site(body);
       const newSite = await site.save();
       return newSite;
-  }else return null;
+  } else return null;
+  } catch (err) { throw new Error(err); }
 };

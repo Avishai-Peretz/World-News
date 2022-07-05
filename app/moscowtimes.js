@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const getMoscowTimesData = async () => {
+  try {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"], headless: true });
   const page = await browser.newPage();
   await page.goto("https://www.themoscowtimes.com/");
@@ -30,7 +31,7 @@ export const getMoscowTimesData = async () => {
         return content;
       });
       await browser.close();
-      const compare =await Site.find({ title: firstPageInfo.title })
+      const compare = await Site.find( {img: firstPageInfo.img} )
     if (compare.length === 0) {
       const body = {
         name: "moscowtimes",
@@ -115,7 +116,7 @@ export const getMoscowTimesData = async () => {
       return content;
     });
     await browser.close();
-    const compare = await Site.find({ title: firstPageInfo.title })
+    const compare = await Site.find( {img: firstPageInfo.img} )
     if (compare.length === 0) {
       const body = {
         name: "moscowtimes",
@@ -177,5 +178,5 @@ export const getMoscowTimesData = async () => {
   } else {
       await browser.close();
       return null;
-  }
+  }} catch (err) { throw new Error(err); }
 };
