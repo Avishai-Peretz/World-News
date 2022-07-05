@@ -32,7 +32,6 @@ export const getAlbayanData = async () => {
     });
     await browser.close();
     const compare = await Site.find( {img: firstPageInfo.img} )
-    console.log(compare)
     if (compare.length === 0) {
       const body = {
         name: "albayan",
@@ -66,7 +65,7 @@ export const getAlbayanData = async () => {
           const resp = await axios.request(createOptions(content));
           return resp.data[0].translations;
         } catch (err) {
-          console.error(err);
+          throw new Error(err);
         }
       };
       const title = await sendGetRequest(firstPageInfo.title);

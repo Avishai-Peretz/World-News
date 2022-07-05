@@ -71,7 +71,7 @@ export const getPanetData = async () => {
           const resp = await axios.request(createOptions(content));
           return resp.data[0].translations;
         } catch (err) {
-          console.error(err);
+          throw new Error(err);
         }
       };
       const title = await sendGetRequest(firstPageInfo.title);

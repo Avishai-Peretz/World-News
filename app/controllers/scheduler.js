@@ -36,7 +36,7 @@ const getScheduledSitesData = async (req, res) => {
   console.log("success");
 };
 console.log("run")
-getScheduledSitesData();
+// getScheduledSitesData();
 export default getScheduledSitesData;
 
 
