@@ -8,7 +8,7 @@ import { getNDTVData } from "../jansatta.js";
 import { getDwData } from "../dw.js";
 
 
-(async (req, res) => {
+const update = async (req, res) => {
     try {
         console.log("try")
         let data = await Site.find();    
@@ -30,5 +30,5 @@ import { getDwData } from "../dw.js";
     throw new Error(e);
   }
   console.log("success");
-})()
-console.log("run")
+}
+export {update};

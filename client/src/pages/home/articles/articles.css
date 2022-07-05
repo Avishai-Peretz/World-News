@@ -3,7 +3,7 @@
     text-shadow: 1px 1px rgb(88, 88, 88);
     text-decoration: none;
     color: black;
-    display: flex ;
+    display: rlex ;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -33,10 +33,10 @@
 .article-container-mobile{
     display: none;
 }
-.splide__slide.is-visible.is-active > a > .article-container {
+/* .splide__slide.is-visible.is-active > a > .article-container {
     background-color: red;
     padding: 20px;
-}
+} */
 
 .article-container p,.article-container-mobile  p {
     background-color: #fff;
