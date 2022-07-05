@@ -16,13 +16,12 @@ const getScheduledSitesData = async (req, res) => {
     if (
       (articles.length < 6 || data.length < 6 ) || ((data.length > 0 || articles.length >0) && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 1)
     ) {
-      // await Site.deleteMany()
-      // await getPanetData();
-      // await getAlbayanData();
-      // await getDwData();
-      // await getYnetData();
-      // await getMoscowTimesData();
-      // await getNDTVData();
+      await getPanetData();
+      await getAlbayanData();
+      await getDwData();
+      await getYnetData();
+      await getMoscowTimesData();
+      await getNDTVData();
       data = await Site.find();
     }
   } catch (e) {
