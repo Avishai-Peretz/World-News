@@ -19,9 +19,18 @@ function App() {
   };
 
   const topArticles = async () => {
-    const getLocalArticles = localStorage.getItem('localArticles') ? JSON.parse(localStorage.getItem('localArticles')) : false;
-    if (!getLocalArticles || getLocalArticles.length < 5 || ((new Date()).getTime() - (new Date(getLocalArticles[0].localUpdateTime)).getTime()) / 60000 > 20) {
-      localStorage.removeItem('localArticles');
+    const getLocalArticles = () => {
+      const local = JSON.parse(localStorage.getItem('localArticles'));
+      if (local && local.length < 7) {
+        return true
+      }
+      if (!local || ((new Date()).getTime() - (new Date(local[0].localUpdateTime)).getTime()) / 60000 > 20) {
+        return true
+      }
+      else return false;
+    };
+    if ( getLocalArticles() ) {
+      localStorage.removeItem('localArticles')
       const articles = await axios.get(`${URI}`);
       const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
       localStorage.setItem("localArticles", localArticles);

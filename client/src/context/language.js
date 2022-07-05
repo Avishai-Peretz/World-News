@@ -1,6 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
-import axios from "axios";
-
+import React, { createContext, useState } from 'react'
 export const myContext = createContext()
 
 function ContextProvider({ children }) {

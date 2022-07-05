@@ -1,4 +1,4 @@
-import { Site } from "../models/site/site.model.js";
+import { Site } from "./models/site/site.model.js";
 import { getYnetData } from "../ynet.js";
 import { getAlbayanData } from "../albayan.js";
 import { getPanetData } from "../panet.js";
@@ -6,20 +6,24 @@ import { getMoscowTimesData } from "../moscowtimes.js";
 import { getNDTVData } from "../jansatta.js";
 import { getDwData } from "../dw.js";
 
+
+
+const getArticles = async () => {
+  try {
+    const article = await axios.get(`http://localhost:5050/api`);
+    console.log(".............................................................",article.length);
+    return article.data;
+  }
+  catch {
+    return [];
+  }
+}
+
 const getSitesData = async (req, res) => {
   try {
-    let data = await Site.find();
-    if (
-      !data.length || data.length === 0 || data.length < 5 || (data.length > 0 && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 1)
-    ) {
-      await Site.deleteMany();
-      await getAlbayanData();
-      await getDwData();
-      await getYnetData();
-      await getPanetData();
-      await getMoscowTimesData();
-      await getNDTVData();
-      data = await Site.find();
+    const data = await Site.find();
+    if (!data) {
+      throw Error("Site not found");
     }
     return res.status(200).send(data);
   } catch (e) {
@@ -39,4 +43,4 @@ const getSpecificSiteData = async (req, res) => {
   }
 };
 
-export { getSitesData, getSpecificSiteData };
+export { getSitesData, getSpecificSiteData, getArticles };
