@@ -13,9 +13,6 @@ import { getDwData } from "../dw.js";
     let data = await Site.find();    
     const getTheArticles =await getArticles();
     const articles = getTheArticles ? getTheArticles : [];
-    if (
-      (articles.length < 6 || data.length < 6 ) || ((data.length > 0 || articles.length >0) && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 1)
-    ) {
       await getAlbayanData();
       console.log("1")
       await getPanetData();
@@ -29,7 +26,6 @@ import { getDwData } from "../dw.js";
       await getNDTVData();
       console.log("6")
       data = await Site.find();
-    }
   } catch (e) {
     throw new Error(e);
   }
