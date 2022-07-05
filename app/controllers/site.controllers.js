@@ -11,7 +11,7 @@ import { getDwData } from "../dw.js";
 const getArticles = async () => {
   const URI = (() => {
     if (process.env.NODE_ENV === "production") {
-      return "/api";
+      return "https://worldwide-news-hackathon.herokuapp.com/api";
     } else {
       return "http://localhost:5050/api";
     }
