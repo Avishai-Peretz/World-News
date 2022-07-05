@@ -25,8 +25,8 @@ export const getPanetData = async () => {
     return { title, img, description };
   });
   await page.click("#topRightArticle > .panet-thumbnail-wrapper > a > img");
-  await page.waitForSelector(".panet-content", {
-    timeout: 10000,
+  await page.waitForSelector(".panet-main-content", {
+    timeout: 30000,
   });
   const grabContent = await page.evaluate(() => {
     const content = [...document.querySelectorAll(".panet-main-content > p")]

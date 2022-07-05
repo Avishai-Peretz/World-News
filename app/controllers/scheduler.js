@@ -17,11 +17,17 @@ const getScheduledSitesData = async (req, res) => {
       (articles.length < 6 || data.length < 6 ) || ((data.length > 0 || articles.length >0) && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 1)
     ) {
       await getPanetData();
+      console.log("1")
       await getAlbayanData();
+      console.log("2")
       await getDwData();
+      console.log("3")
       await getYnetData();
+      console.log("4")
       await getMoscowTimesData();
+      console.log("5")
       await getNDTVData();
+      console.log("6")
       data = await Site.find();
     }
   } catch (e) {
