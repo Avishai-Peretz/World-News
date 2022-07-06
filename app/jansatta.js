@@ -12,7 +12,11 @@ export const getNDTVData = async () => {
     await page.waitForSelector("article.category-national ", {
       timeout: 100000,
     });
-    await page.click(".entry-title > a");
+    const urlInfo = await page.evaluate(() => {
+      const url = document.querySelector("#topRightArticle > .panet-title > a ").href;
+      return url;
+    });
+    await page.goto(urlInfo);
     await page.waitForSelector(".wp-block-post-title", {
       timeout: 100000,
     });
