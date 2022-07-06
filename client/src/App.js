@@ -18,10 +18,10 @@ function App() {
 
     const getLocalArticles = () => {
       const local = JSON.parse(localStorage.getItem('localArticles'));
-      if (local && local.length < 7) {
+      if (!local || local.length < 7) {
         return true
       }
-      if (!local || ((new Date()).getTime() - (new Date(local[0].localUpdateTime)).getTime()) / 60000 > 10) {
+      if (local && ((new Date()).getTime() - (new Date(local[0].localUpdateTime)).getTime()) / 60000 > 10) {
         return true
       }
       else return false;
