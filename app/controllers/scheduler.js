@@ -1,4 +1,3 @@
-import { getArticles } from "./site.controllers.js";
 import { Site } from "./models/site/site.model.js";
 import { getYnetData } from "../ynet.js";
 import { getAlbayanData } from "../albayan.js";
