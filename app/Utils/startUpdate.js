@@ -1,4 +1,4 @@
-import getScheduledSitesData from "../controllers/scheduler.js";
+import axios from "axios";
 
 const startUpdate = async () => {
   const URI = (() => {
