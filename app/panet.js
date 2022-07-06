@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getPanetData = async () => {
   try {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"], headless: true });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
   const page = await browser.newPage();
   await page.goto("https://www.panet.co.il/");
   await page.waitForSelector(".panet-title", {

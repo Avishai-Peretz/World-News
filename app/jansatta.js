@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getNDTVData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"], headless: true });
+    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
     const page = await browser.newPage();
     await page.goto("https://www.jansatta.com/");
     await page.waitForSelector("article.category-national ", {

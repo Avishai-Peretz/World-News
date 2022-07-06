@@ -25,7 +25,10 @@ const getScheduledSitesData = async (req, res) => {
       console.log("6 : getNDTVData finished")
       console.log("***scraping has finished***")
       const data = await Site.find();
-    if (req) { return res.status(200).send(data) } else return;
+    if (req) {
+      console.log("***updating has finished***")
+      return res.status(200).send(data)
+    } else return;
   } catch (e) {
     if (req) {
       console.log("failed to update")
