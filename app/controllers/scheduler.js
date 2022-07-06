@@ -8,7 +8,7 @@ import { getNDTVData } from "../jansatta.js";
 import { getDwData } from "../dw.js";
 
 
-const getScheduledSitesData = async () => {
+const getScheduledSitesData = async (req, res) => {
   try {
     console.log("start scraping");
       await getAlbayanData();
@@ -24,9 +24,14 @@ const getScheduledSitesData = async () => {
       await getNDTVData();
       console.log("6 : getNDTVData finished")
       console.log("***scraping has finished***")
+      const data = await Site.find();
+    if (req) { return res.status(200).send(data) } else return;
   } catch (e) {
-    console.log("update failed: " + e.message);
-    throw new Error(e);
+    if (req) { return res.status(400).send(e.message.toString()); }
+    else {
+      console.log("update failed: " + e.message);
+      throw new Error(e);
+    }
   }
 };
 
