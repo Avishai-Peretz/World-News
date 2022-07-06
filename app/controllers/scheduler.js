@@ -27,7 +27,10 @@ const getScheduledSitesData = async (req, res) => {
       const data = await Site.find();
     if (req) { return res.status(200).send(data) } else return;
   } catch (e) {
-    if (req) { return res.status(400).send(e.message.toString()); }
+    if (req) {
+      console.log("failed to update")
+      return res.status(400).send(e.message.toString());
+    }
     else {
       console.log("update failed: " + e.message);
       throw new Error(e);
