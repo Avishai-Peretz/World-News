@@ -10,11 +10,11 @@ export const getNDTVData = async () => {
     const page = await browser.newPage();
     await page.goto("https://www.jansatta.com/");
     await page.waitForSelector("article.category-national ", {
-      timeout: 100000,
+      timeout: 30000,
     });
     await page.click(".entry-title > a");
     await page.waitForSelector(".wp-block-post-title", {
-      timeout: 100000,
+      timeout: 30000,
     });
     const url = page.url();
     const firstPageInfo = await page.evaluate(() => {
@@ -36,7 +36,7 @@ export const getNDTVData = async () => {
     });
     await browser.close();
     const compare = await Site.find({ url: url })
-    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+    if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,
         name: "jansatta",

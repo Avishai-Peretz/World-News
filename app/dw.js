@@ -10,7 +10,7 @@ export const getDwData = async () => {
     const page = await browser.newPage();
     await page.goto("https://www.dw.com/en/top-stories/s-9097");
     await page.waitForSelector(".teaserContentWrap > a > h2", {
-      timeout: 100000,
+      timeout: 30000,
     });
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector(".teaserContentWrap > a > h2").innerText;
@@ -22,7 +22,7 @@ export const getDwData = async () => {
     });
     await page.click(".teaserImg > a");
     await page.waitForSelector(".longText > p", {
-      timeout: 100000,
+      timeout: 30000,
     });
     const url =page.url();
     const grabContent = await page.evaluate(() => {
@@ -34,7 +34,7 @@ export const getDwData = async () => {
     });
     await browser.close();
     const compare = await Site.find( {url: url} )
-    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+    if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,
         name: "dw",

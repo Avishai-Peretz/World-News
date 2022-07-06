@@ -10,28 +10,28 @@ import { getDwData } from "../dw.js";
 
 const getScheduledSitesData = async (req, res) => {
   try {
-    console.log("start scraping");
+      console.log("start scraping");
       await getAlbayanData();
       console.log("1: getAlbayanData finished");
-      await getPanetData();
-      console.log("2: getPanetData finished");
       await getDwData();
-      console.log("3: getDwData finished");
+      console.log("2: getDwData finished");
       await getYnetData();
-      console.log("4: getYnetData finished")
+      console.log("3: getYnetData finished");
       await getMoscowTimesData();
-      console.log("5: getMoscowTimesData finished")
+      console.log("4: getMoscowTimesData finished");
       await getNDTVData();
-      console.log("6 : getNDTVData finished")
-      console.log("***scraping has finished***")
-      const data = await Site.find();
+      console.log("5 : getNDTVData finished");
+      await getPanetData();
+      console.log("6: getPanetData finished");
+      console.log("***scraping has finished***");
+      let data = await Site.find();
     if (req) {
       console.log("***updating has finished***")
       return res.status(200).send(data)
     } else return;
   } catch (e) {
     if (req) {
-      console.log("failed to update")
+      console.log("failed to update" + e.message.toString())
       return res.status(400).send(e.message.toString());
     }
     else {

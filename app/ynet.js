@@ -11,7 +11,7 @@ export const getYnetData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.ynet.co.il/");
   await page.waitForSelector("h1.slotTitle > span:nth-child(1)", {
-    timeout: 100000,
+    timeout: 30000,
   });
   const firstPageInfo = await page.evaluate(() => {
     const title = document.querySelector(
@@ -19,11 +19,12 @@ export const getYnetData = async () => {
     ).innerText;
     const img = document.querySelector(".SiteImageMedia").src;
     const description = document.querySelector(".slotSubTitle").innerText;
-    return { title, img, description };
+    const url = document.querySelector(".TopStory1280Componenta > div > div > div > div > a").href;
+    return { title, img, description, url };
   });
-  await page.click(".TopStory1280Componenta > div > div > div > div > a");
+  await page.goto(firstPageInfo.url);
   await page.waitForSelector(".text_editor_paragraph.rtl", {
-    timeout: 100000,
+    timeout: 30000,
   });
     const url = page.url();  
   const grabContent = await page.evaluate(() => {
@@ -35,7 +36,7 @@ export const getYnetData = async () => {
   });
   await browser.close();
   const compare = await Site.find( {url: url} )
-  if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+  if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
     const body = {
       url: url,
       name: "ynet",

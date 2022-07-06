@@ -10,7 +10,7 @@ export const getPanetData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.panet.co.il/");
   await page.waitForSelector(".panet-title", {
-    timeout: 100000,
+    timeout: 30000,
   });
 
   const firstPageInfo = await page.evaluate(() => {
@@ -23,9 +23,10 @@ export const getPanetData = async () => {
     const description = document.querySelector(
       "#topRightArticle > .panet-abstract"
     ).innerText;
-    return { title, img, description };
+    const url = document.querySelector("#topRightArticle > .panet-title > a ").href;
+    return { title, img, description, url };
   });
-  await page.click("#topRightArticle > .panet-title > a ");
+  await page.goto(firstPageInfo.url);
   await page.waitForSelector(".panet-main-content", {
     timeout: 30000,
   });
@@ -39,7 +40,7 @@ export const getPanetData = async () => {
   });
   await browser.close();
   const compare = await Site.find( {url: url} )
-  if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+  if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
     const body = {
         url: url,
         name: "panet",
