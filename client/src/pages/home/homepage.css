@@ -33,10 +33,6 @@ body {
   margin-bottom: 100px;
   gap: 50px;
 }
-
-.articles-container > div {
-  /* margin-bottom: 70px; */
-}
 .article-link {
   display: flex;
   align-items: center;

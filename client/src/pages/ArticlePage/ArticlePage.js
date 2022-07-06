@@ -57,9 +57,7 @@ export default function ArticlePage({ sixTopArticles }) {
   const data = getLang();
   
   useEffect(() => {
-   topArticles()
-   })
-  useEffect(() => {
+    topArticles()
    },[lang])
 
   if (article) {
