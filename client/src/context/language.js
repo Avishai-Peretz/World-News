@@ -13,6 +13,7 @@ function ContextProvider({ children }) {
   const refreshLocal = async () => {
     localStorage.removeItem('localArticles')
     const articles = await axios.get(`${URI}`);
+    setTopArticles([{ localUpdateTime: new Date() }, ...articles.data])
     const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
     localStorage.setItem("localArticles", localArticles);
   }
