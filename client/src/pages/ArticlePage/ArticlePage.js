@@ -68,7 +68,7 @@ export default function ArticlePage({ sixTopArticles }) {
             <div article-name={article.name}></div>
           </div>
           <div>
-            <a href={article.url} target="_blank" className="original-link" ><button href={article.url} className="btn">{data.button}</button> </a>
+            <a href={article.url} target="_blank" rel="noreferrer" className="original-link" ><button href={article.url} className="btn">{data.button}</button> </a>
           </div>
           <div>
             <img className="article-page-img" src={article.img} alt="img" />
