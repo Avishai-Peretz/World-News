@@ -7,6 +7,10 @@
     align-items: center;
     width: 100vw;
 }
+.original-link > button:hover{
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px rgba(12, 154, 173, 0.479);
+}
 .content-container {
     width: 60vw;
     display: flex ;

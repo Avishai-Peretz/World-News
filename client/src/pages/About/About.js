@@ -229,7 +229,7 @@ const MainPage = () => {
         </div>
         <a
           rel="noreferrer"
-          href="https://github.com/mtn4/Hackathon"
+          href="https://github.com/Avishai-Peretz/World-News"
           target="_blank"
         >
           <div className="github"></div>

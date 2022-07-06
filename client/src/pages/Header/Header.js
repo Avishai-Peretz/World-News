@@ -72,7 +72,7 @@ const Header = () => {
         <div className="copyright-container">
           <div className="copyright">© Copyright AppleSeeds | jun 2022</div>
           <div>
-            <a href="https://github.com/mtn4/Hackathon" target="_blank" >
+            <a href="https://github.com/Avishai-Peretz/World-News" target="_blank" >
               <div className="github-bot"></div>
             </a>
           </div>

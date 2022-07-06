@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import Article from "./articles/Articles.jsx";
 import { Link } from "react-router-dom";
 import { myContext } from "../../context/language.js";
-import { Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/splide/css/sea-green';
 import "./homepage.css";
 
@@ -12,6 +11,15 @@ const Homepage = () => {
  
   const getSixTopArticles = localStorage.getItem("localArticles") ? JSON.parse(localStorage.getItem("localArticles")) : sixTopArticles;
   
+  const articlesListByDate = () => {
+    const articleByDate = [];
+    for (let i = getSixTopArticles.length - 1 ; i !== 0 ; i--){                            
+      articleByDate.push(getSixTopArticles[i]);                
+    }
+    return articleByDate;
+  }
+  const articlesByDate = articlesListByDate(); 
+
   useEffect(() => {
   }, [lang]);
 
@@ -19,31 +27,12 @@ const Homepage = () => {
   return (
     <div className="page">
       <div className="articles-container">
-    <div>          
-        <Splide
-          options={{
-          rewind: true,
-          width: "100vw",
-          height: "70vh",
-          gap   : '3rem',
-          type: 'slider',
-          padding: '0rem',
-          perPage: 3,
-          perMove: 3,
-          // focus  : 'start',
-          arrow: "splide__arrows arrows-c",
-              wheel: true,
-              speed: 2500,
-        } }
-        >
-          {
+      {
             getSixTopArticles
             ?
-            getSixTopArticles.map((article, index) => {
-              if (index !== 0 )
+            articlesByDate.map((article) =>                       
                 {const topArticle = article;
                   return (
-                    <SplideSlide key={"slide" + topArticle._id}>
                       <Link key={"link" + topArticle._id} to={`/article/${topArticle._id}`} className="article-link" style={{ textDecoration: 'none' }}>
                         <Article
                           key={topArticle._id}
@@ -51,21 +40,16 @@ const Homepage = () => {
                           article={topArticle}
                         />
                       </Link>
-                    </SplideSlide>
-                  );} else return false
-            })
+              )})
             :
             <div className="loader-container"><div className="loader"></div></div>
           }
-        </Splide>
-        </div>
       </div>
       <div className="articles-container-mobile">
       {
             getSixTopArticles
             ?
-            getSixTopArticles.map((article, index) => {
-              if (index !== 0 )
+            articlesByDate.map((article) =>                       
                 {const topArticle = article;
                   return (
                       <Link key={"link" + topArticle._id} to={`/article/${topArticle._id}`} className="article-link" style={{ textDecoration: 'none' }}>
@@ -75,9 +59,7 @@ const Homepage = () => {
                           article={topArticle}
                         />
                       </Link>
-                ) 
-              }else return false
-            })
+              )})
             :
             <div className="loader-container"><div className="loader"></div></div>
           }

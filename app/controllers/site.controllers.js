@@ -1,25 +1,27 @@
-import { Site } from "../models/site/site.model.js";
-import { getYnetData } from "../ynet.js";
-import { getAlbayanData } from "../albayan.js";
-import { getPanetData } from "../panet.js";
-import { getMoscowTimesData } from "../moscowtimes.js";
-import { getNDTVData } from "../jansatta.js";
-import { getDwData } from "../dw.js";
+import { Site } from "./models/site/site.model.js";
+
+const getArticles = async () => {
+  const URI = (() => {
+    if (process.env.NODE_ENV === "production") {
+      return "https://worldwide-news-hackathon.herokuapp.com/api";
+    } else {
+      return "http://localhost:5050/api";
+    }
+  })();
+  try {
+    const article = await axios.get(URI);
+    return article.data;
+  }
+  catch {
+    return [];
+  }
+}
 
 const getSitesData = async (req, res) => {
   try {
-    let data = await Site.find();
-    if (
-      data.length === 0 || (data.length > 0 && ((new Date).getTime() - (new Date(data[0].createdAt)).getTime())/3600000 > 4)
-    ) {
-      await Site.deleteMany();
-      await getAlbayanData();
-      await getDwData();
-      await getYnetData();
-      await getPanetData();
-      await getMoscowTimesData();
-      await getNDTVData();
-      data = await Site.find();
+    const data = await Site.find();
+    if (!data) {
+      throw Error("Site not found");
     }
     return res.status(200).send(data);
   } catch (e) {
@@ -39,4 +41,4 @@ const getSpecificSiteData = async (req, res) => {
   }
 };
 
-export { getSitesData, getSpecificSiteData };
+export { getSitesData, getSpecificSiteData, getArticles };
