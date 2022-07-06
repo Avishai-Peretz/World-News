@@ -46,12 +46,11 @@ const Homepage = () => {
           }
       </div>
       <div className="articles-container-mobile">
-          {/* {
+      {
             getSixTopArticles
             ?
-            () => {
-              for (let i = sixTopArticles.length; i > 0; i--){                            
-                const topArticle = sixTopArticles[i];
+            articlesByDate.map((article) =>                       
+                {const topArticle = article;
                   return (
                       <Link key={"link" + topArticle._id} to={`/article/${topArticle._id}`} className="article-link" style={{ textDecoration: 'none' }}>
                         <Article
@@ -60,12 +59,10 @@ const Homepage = () => {
                           article={topArticle}
                         />
                       </Link>
-                )               
-              }
-            }
+              )})
             :
             <div className="loader-container"><div className="loader"></div></div>
-          } */}
+          }
       </div>
     </div>
   );
