@@ -18,12 +18,12 @@ const getScheduledSitesData = async (req, res) => {
       await getDwData();
       console.log("3: getDwData finished");
       await getYnetData();
-      console.log("4: getYnetData finished")
+    console.log("4: getYnetData finished");
       await getMoscowTimesData();
-      console.log("5: getMoscowTimesData finished")
+    console.log("5: getMoscowTimesData finished");
       await getNDTVData();
-      console.log("6 : getNDTVData finished")
-      console.log("***scraping has finished***")
+    console.log("6 : getNDTVData finished");
+    console.log("***scraping has finished***");
       let data = await Site.find();
     if (req) {
       console.log("***updating has finished***")
