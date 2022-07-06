@@ -4,17 +4,22 @@ import { Site } from "./controllers/models/site/site.model.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const getNDTVData = async () => {
+export const getJansatta = async () => {
   try {
     const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
     const page = await browser.newPage();
     await page.goto("https://www.jansatta.com/");
     await page.waitForSelector("article.category-national ", {
-      timeout: 30000,
+      timeout: 100000,
     });
-    await page.click(".entry-title > a");
+    const urlInfo = await page.evaluate(() => {
+      const artUrl = document.querySelector(".entry-title > a ").href;
+      return artUrl;
+    });
+    console.log(urlInfo)
+    await page.goto(urlInfo);
     await page.waitForSelector(".wp-block-post-title", {
-      timeout: 30000,
+      timeout: 100000,
     });
     const url = page.url();
     const firstPageInfo = await page.evaluate(() => {
@@ -36,7 +41,8 @@ export const getNDTVData = async () => {
     });
     await browser.close();
     const compare = await Site.find({ url: url })
-    if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
+    console.log(compare[0].url)
+    if (compare.length === 0 || !(compare[0].url === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,
         name: "jansatta",

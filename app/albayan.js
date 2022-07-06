@@ -10,7 +10,7 @@ export const getAlbayanData = async () => {
     const page = await browser.newPage();
     await page.goto("https://www.albayan.ae/");
     await page.waitForSelector(".albayan .first-child", {
-      timeout: 30000,
+      timeout: 100000,
     });
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector(".albayan > article > .text > h2 > a").innerText;
@@ -18,12 +18,14 @@ export const getAlbayanData = async () => {
       const description = document.querySelector(".lead").innerText || "";
       const url = document.querySelector(".albayan.first-child > article > section > h2 > a").href;
     return { title, img, description, url };
-    });
-    await page.goto(firstPageInfo.url);
+    });   
+    
+    const url = firstPageInfo.url.indexOf("https://www.albayan.ae/") === 0 ? firstPageInfo.url: `https://www.albayan.ae${firstPageInfo.url}`;
+    console.log(url)
+    await page.goto(url);
     await page.waitForSelector("h1.title", {
-      timeout: 30000,
+      timeout: 100000,
     });
-    const url = page.url();
     const grabContent = await page.evaluate(() => {
       const content = [...document.querySelectorAll("#articledetails > div")]
         .map((elem) => elem.innerText)
@@ -32,9 +34,8 @@ export const getAlbayanData = async () => {
       return content.join("\n");
     });
     await browser.close();
-    const compare = await Site.find( {url: `${url}`} )
-    console.log(`${url}`, url, compare[0].url);
-    if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
+    const compare = await Site.find( {url: url} )
+   if (compare.length === 0 || !(compare[0].url === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,
         name: "albayan",

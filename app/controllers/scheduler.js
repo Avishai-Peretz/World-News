@@ -1,10 +1,9 @@
-import { getArticles } from "./site.controllers.js";
 import { Site } from "./models/site/site.model.js";
 import { getYnetData } from "../ynet.js";
 import { getAlbayanData } from "../albayan.js";
 import { getPanetData } from "../panet.js";
 import { getMoscowTimesData } from "../moscowtimes.js";
-import { getNDTVData } from "../jansatta.js";
+import { getJansatta } from "../jansatta.js";
 import { getDwData } from "../dw.js";
 
 
@@ -19,8 +18,8 @@ const getScheduledSitesData = async (req, res) => {
       console.log("3: getYnetData finished");
       await getMoscowTimesData();
       console.log("4: getMoscowTimesData finished");
-      await getNDTVData();
-      console.log("5 : getNDTVData finished");
+      await getJansatta();
+      console.log("5 : getJansatta finished");
       await getPanetData();
       console.log("6: getPanetData finished");
       console.log("***scraping has finished***");

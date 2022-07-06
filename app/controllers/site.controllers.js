@@ -1,12 +1,4 @@
 import { Site } from "./models/site/site.model.js";
-import { getYnetData } from "../ynet.js";
-import { getAlbayanData } from "../albayan.js";
-import { getPanetData } from "../panet.js";
-import { getMoscowTimesData } from "../moscowtimes.js";
-import { getNDTVData } from "../jansatta.js";
-import { getDwData } from "../dw.js";
-
-
 
 const getArticles = async () => {
   const URI = (() => {
