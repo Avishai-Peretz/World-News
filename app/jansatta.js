@@ -4,7 +4,7 @@ import { Site } from "./controllers/models/site/site.model.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const getNDTVData = async () => {
+export const getJansatta = async () => {
   try {
     const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
     const page = await browser.newPage();
