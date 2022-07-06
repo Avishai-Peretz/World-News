@@ -62,16 +62,6 @@ const Article = ({ article }) => {
           {data.lang.title}
         </h3>
       </div>
-      {/* <div>
-        <p className="description"
-          style={{
-            whiteSpace: "pre-wrap",
-            direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
-          }}
-        >
-          {data.lang.description}
-        </p>
-      </div> */}
     </div>
       <div className="article-container-mobile">       
         <div className="website-img-container">
