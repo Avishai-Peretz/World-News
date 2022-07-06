@@ -11,15 +11,15 @@ import { getDwData } from "../dw.js";
 const getScheduledSitesData = async (req, res) => {
   try {
       console.log("start scraping");
-      await getJansatta();
-      console.log("1: getAlbayanData finished");
       await getAlbayanData();
+      console.log("1: getAlbayanData finished");
       await getDwData();
       console.log("2: getDwData finished");
       await getYnetData();
       console.log("3: getYnetData finished");
       await getMoscowTimesData();
       console.log("4: getMoscowTimesData finished");
+      await getJansatta();
       console.log("5 : getJansatta finished");
       await getPanetData();
       console.log("6: getPanetData finished");
