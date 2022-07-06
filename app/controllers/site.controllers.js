@@ -18,7 +18,6 @@ const getArticles = async () => {
   })();
   try {
     const article = await axios.get(URI);
-    console.log(".............................................................",article.length);
     return article.data;
   }
   catch {

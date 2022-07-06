@@ -28,10 +28,10 @@ body {
 .articles-container{
   width: 90vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
   margin-bottom: 100px;
-  gap: 100px;
+  gap: 50px;
 }
 
 .articles-container > div {

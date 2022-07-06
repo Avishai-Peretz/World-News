@@ -10,7 +10,6 @@ const startUpdate = async () => {
     })();
     try {
       const article = await axios.get(URI);
-      console.log(".............................................................",article.data);
       return article.data;
     }
     catch {

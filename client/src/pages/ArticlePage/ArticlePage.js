@@ -26,7 +26,6 @@ export default function ArticlePage({ sixTopArticles }) {
 
   const getLang = () => {
     let data = "";
-    let button = "";
     if (article) {
       if (lang === "he") {
         data ={
@@ -56,9 +55,11 @@ export default function ArticlePage({ sixTopArticles }) {
     }
   };
   const data = getLang();
-
+  
   useEffect(() => {
-    topArticles()
+   topArticles()
+   })
+  useEffect(() => {
    },[lang])
 
   if (article) {

@@ -36,7 +36,6 @@ export const getNDTVData = async () => {
     });
     await browser.close();
     const compare = await Site.find({ url: url })
-    console.log(compare)
     if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
         url: url,
