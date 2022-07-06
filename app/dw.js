@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getDwData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
+    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox']});
     const page = await browser.newPage();
     await page.goto("https://www.dw.com/en/top-stories/s-9097");
     await page.waitForSelector(".teaserContentWrap > a > h2", {

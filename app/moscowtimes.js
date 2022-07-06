@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getMoscowTimesData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
+    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.goto("https://www.themoscowtimes.com/");
   if(await page.waitForSelector(".article-excerpt-lead", { timeout: 10000,})) {
