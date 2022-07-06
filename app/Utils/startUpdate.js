@@ -10,9 +10,10 @@ const startUpdate = async () => {
   })();
   try {
     const article = await axios.get(URI);
-    return res.status(200).send(article.data);
+    return article.data;
   } catch (e) {
-    return res.status(400).send(e.message.toString());
+    console.log(e.message);
+    throw new Error(e.message);
   }
 }
 startUpdate();
