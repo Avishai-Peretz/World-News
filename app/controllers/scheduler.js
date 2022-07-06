@@ -31,7 +31,7 @@ const getScheduledSitesData = async (req, res) => {
     } else return;
   } catch (e) {
     if (req) {
-      console.log("failed to update")
+      console.log("failed to update" + e.message.toString())
       return res.status(400).send(e.message.toString());
     }
     else {

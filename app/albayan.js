@@ -16,9 +16,10 @@ export const getAlbayanData = async () => {
       const title = document.querySelector(".albayan > article > .text > h2 > a").innerText;
       const img = document.querySelector(".media > a > .fade-in").src;
       const description = document.querySelector(".lead").innerText || "";
-      return { title, img, description }
+      const url = document.querySelector(".albayan.first-child > article > section > h2 > a").href;
+    return { title, img, description, url };
     });
-    await page.click(".albayan.first-child > article > section > h2 > a");
+    await page.goto(firstPageInfo.url);
     await page.waitForSelector("h1.title", {
       timeout: 10000,
     });
@@ -31,8 +32,9 @@ export const getAlbayanData = async () => {
       return content.join("\n");
     });
     await browser.close();
-    const compare = await Site.find( {url: url} )
-    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+    const compare = await Site.find( {url: `${url}`} )
+    console.log(`${url}`, url, compare[0].url);
+    if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,
         name: "albayan",
