@@ -25,6 +25,7 @@ export const getYnetData = async () => {
   await page.waitForSelector(".text_editor_paragraph.rtl", {
     timeout: 10000,
   });
+    const url = page.url();  
   const grabContent = await page.evaluate(() => {
     const content = [...document.querySelectorAll(".text_editor_paragraph.rtl")]
       .map((elem) => elem.innerText)
@@ -33,9 +34,10 @@ export const getYnetData = async () => {
     return content;
   });
   await browser.close();
-  const compare = await Site.find( {img: firstPageInfo.img} )
-  if (compare.length === 0) {
+  const compare = await Site.find( {url: url} )
+  if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
     const body = {
+      url: url,
       name: "ynet",
       img: firstPageInfo.img,
       he: {

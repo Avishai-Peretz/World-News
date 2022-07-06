@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getDwData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox"], headless: true });
+    const browser = await puppeteer.launch({ args: ["--no-sandbox" ,"--disable-notifications"], headless: true });
     const page = await browser.newPage();
     await page.goto("https://www.dw.com/en/top-stories/s-9097");
     await page.waitForSelector(".teaserContentWrap > a > h2", {
@@ -24,6 +24,7 @@ export const getDwData = async () => {
     await page.waitForSelector(".longText > p", {
       timeout: 100000,
     });
+    const url =page.url();
     const grabContent = await page.evaluate(() => {
       const content = [...document.querySelectorAll(".longText > p")]
         .map((elem) => elem.innerText)
@@ -32,9 +33,10 @@ export const getDwData = async () => {
       return content;
     });
     await browser.close();
-    const compare = await Site.find( {img: firstPageInfo.img} )
-    if (compare.length === 0) {
+    const compare = await Site.find( {url: url} )
+    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
+        url: url,
         name: "dw",
         img: firstPageInfo.img,
         en: {

@@ -19,6 +19,12 @@ const langSchema = new mongoose.Schema({
 
 const siteSchema = new mongoose.Schema(
   {
+    url: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+    },
     name: {
       type: String,
       required: true,

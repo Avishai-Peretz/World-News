@@ -26,18 +26,31 @@ export default function ArticlePage({ sixTopArticles }) {
 
   const getLang = () => {
     let data = "";
+    let button = "";
     if (article) {
       if (lang === "he") {
-        data = article.he;
+        data ={
+          lang: article.he,
+          button : "לחץ לכתבה המקורית",
+        } 
       }
       if (lang === "en") {
-        data = article.en;
+        data ={
+          lang: article.en,
+          button: "Click here for the original article",
+        } 
       }
       if (lang === "ru") {
-        data = article.ru;
+        data ={
+          lang: article.ru,
+          button: "Нажмите здесь для просмотра оригинальной статьи",
+        } 
       }
       if (lang === "ar") {
-        data = article.ar;
+        data ={
+          lang: article.ar,
+          button: "انقر هنا للحصول على المادة الأصلية",
+        } 
       }
       return data;
     }
@@ -56,13 +69,16 @@ export default function ArticlePage({ sixTopArticles }) {
             <div article-name={article.name}></div>
           </div>
           <div>
+            <a href={article.url} className="original-link" ><button href={article.url} className="btn">{data.button}</button> </a>
+          </div>
+          <div>
             <img className="article-page-img" src={article.img} alt="img" />
           </div>
           <div>
-            <h2 className="title">{data.title}</h2>
+            <h2 className="title">{data.lang.title}</h2>
           </div>
           <div>
-            <h3>{data.description}</h3>
+            <h3>{data.lang.description}</h3>
           </div>
           <div>
             <p
@@ -71,7 +87,7 @@ export default function ArticlePage({ sixTopArticles }) {
                 direction: lang === "he" || lang === "ar" ? "rtl" : "ltr",
               }}
             >
-              {data.content}
+              {data.lang.content}
             </p>
           </div>
         </div>

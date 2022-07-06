@@ -6,16 +6,17 @@ dotenv.config();
 
 export const getNDTVData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox"], headless: true });
+    const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"], headless: true });
     const page = await browser.newPage();
     await page.goto("https://www.jansatta.com/");
     await page.waitForSelector("article.category-national ", {
       timeout: 100000,
     });
-    await page.click("article.category-national > figure > a");
+    await page.click(".entry-title > a");
     await page.waitForSelector(".wp-block-post-title", {
       timeout: 100000,
     });
+    const url = page.url();
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector("h1.wp-block-post-title").innerText;
       const img = document.querySelector(
@@ -34,9 +35,11 @@ export const getNDTVData = async () => {
       return content;
     });
     await browser.close();
-    const compare = await Site.find( {img: firstPageInfo.img} )
-    if (compare.length === 0) {
+    const compare = await Site.find({ url: url })
+    console.log(compare)
+    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
+        url: url,
         name: "jansatta",
         img: firstPageInfo.img,
         en: {

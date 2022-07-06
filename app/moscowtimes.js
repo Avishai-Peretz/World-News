@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getMoscowTimesData = async () => {
   try {
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"], headless: true });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-notifications"], headless: true });
   const page = await browser.newPage();
   await page.goto("https://www.themoscowtimes.com/");
   if(await page.waitForSelector(".article-excerpt-lead", { timeout: 10000,})) {
@@ -23,6 +23,7 @@ export const getMoscowTimesData = async () => {
       await page.waitForSelector(".article__featured-image", {
         timeout: 10000,
       });
+    const url = page.url();
       const grabContent = await page.evaluate(() => {
         const content = [...document.querySelectorAll(".article__block > p")]
           .map((elem) => elem.innerText)
@@ -31,9 +32,10 @@ export const getMoscowTimesData = async () => {
         return content;
       });
       await browser.close();
-      const compare = await Site.find( {img: firstPageInfo.img} )
-    if (compare.length === 0) {
+      const compare = await Site.find( {url: url} )
+      if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
+        url: url,
         name: "moscowtimes",
         img: firstPageInfo.img,
         en: {
@@ -108,6 +110,7 @@ export const getMoscowTimesData = async () => {
     await page.waitForSelector(".article__featured-image", {
       timeout: 10000,
     });
+    const url = page.url();
     const grabContent = await page.evaluate(() => {
       const content = [...document.querySelectorAll(".article__block > p")]
         .map((elem) => elem.innerText)
@@ -116,9 +119,10 @@ export const getMoscowTimesData = async () => {
       return content;
     });
     await browser.close();
-    const compare = await Site.find( {img: firstPageInfo.img} )
-    if (compare.length === 0) {
+    const compare = await Site.find( {url: url} )
+    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
+        url: url,
         name: "moscowtimes",
         img: firstPageInfo.img,
         en: {

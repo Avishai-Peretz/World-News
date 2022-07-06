@@ -13,8 +13,7 @@ export const getAlbayanData = async () => {
       timeout: 10000,
     });
     const firstPageInfo = await page.evaluate(() => {
-      debugger
-      const title = document.querySelectorAll("h2 > a")[1].innerText;
+      const title = document.querySelector(".albayan > article > .text > h2 > a").innerText;
       const img = document.querySelector(".media > a > .fade-in").src;
       const description = document.querySelector(".lead").innerText || "";
       return { title, img, description }
@@ -23,17 +22,19 @@ export const getAlbayanData = async () => {
     await page.waitForSelector("h1.title", {
       timeout: 10000,
     });
+    const url = page.url();
     const grabContent = await page.evaluate(() => {
-      const content = [...document.querySelectorAll("#articledetails > p")]
+      const content = [...document.querySelectorAll("#articledetails > div")]
         .map((elem) => elem.innerText)
         .filter((elem) => elem.length > 10);
       content.pop();
       return content.join("\n");
     });
     await browser.close();
-    const compare = await Site.find( {img: firstPageInfo.img} )
-    if (compare.length === 0) {
+    const compare = await Site.find( {url: url} )
+    if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
       const body = {
+        url: url,
         name: "albayan",
         img: firstPageInfo.img,
         ar: {

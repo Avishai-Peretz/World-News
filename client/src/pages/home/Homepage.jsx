@@ -22,11 +22,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,
@@ -62,11 +62,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,
@@ -102,11 +102,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,
@@ -142,11 +142,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,
@@ -182,11 +182,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,
@@ -222,11 +222,11 @@ const Homepage = () => {
     <div>          
         <Splide
           options={{
-          rewind: false,
-          width: "60vw",
-          height: "70vh",
+          rewind: true,
+          width: "40vw",
+          height: "50vh",
           gap   : '3rem',
-          type: 'slide',
+          type: 'loop',
           padding: '0rem',
           perPage: 1,
           perMove: 1,

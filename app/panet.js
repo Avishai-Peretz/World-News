@@ -29,6 +29,7 @@ export const getPanetData = async () => {
   await page.waitForSelector(".panet-main-content", {
     timeout: 30000,
   });
+  const url = page.url();
   const grabContent = await page.evaluate(() => {
     const content = [...document.querySelectorAll(".panet-main-content > p")]
       .map((elem) => elem.innerText)
@@ -37,9 +38,10 @@ export const getPanetData = async () => {
     return content;
   });
   await browser.close();
-  const compare = await Site.find( {img: firstPageInfo.img} )
-  if (compare.length === 0) {
-      const body = {
+  const compare = await Site.find( {url: url} )
+  if (compare.length === 0 || !(compare.img === firstPageInfo.img || compare.url === firstPageInfo.url)) {
+    const body = {
+        url: url,
         name: "panet",
         img: firstPageInfo.img,
         ar: {
