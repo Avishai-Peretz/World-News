@@ -6,7 +6,7 @@ dotenv.config();
 
 export const getAlbayanData = async () => {
   try {
-    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
     const page = await browser.newPage();
     await page.goto("https://www.albayan.ae/");
     await page.waitForSelector(".albayan .first-child", {

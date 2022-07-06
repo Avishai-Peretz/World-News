@@ -7,7 +7,7 @@ dotenv.config();
 export const getYnetData = async () => {
   try {
   // await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
-  const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
   const page = await browser.newPage();
   await page.goto("https://www.ynet.co.il/");
   await page.waitForSelector("h1.slotTitle > span:nth-child(1)", {
