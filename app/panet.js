@@ -40,7 +40,7 @@ export const getPanetData = async () => {
   });
   await browser.close();
   const compare = await Site.find( {url: url} )
-  if (compare.length === 0 || !(compare[0].ur === url || compare[0].img === firstPageInfo.img)) {
+ if (compare.length === 0 || !(compare[0].url === url || compare[0].img === firstPageInfo.img)) {
     const body = {
         url: url,
         name: "panet",
