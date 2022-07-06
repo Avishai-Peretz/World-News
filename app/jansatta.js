@@ -13,7 +13,7 @@ export const getJansatta = async () => {
       timeout: 100000,
     });
     const urlInfo = await page.evaluate(() => {
-      const url = document.querySelector("#topRightArticle > .panet-title > a ").href;
+      const url = document.querySelector(".entry-title > a ").href;
       return url;
     });
     await page.goto(urlInfo);
