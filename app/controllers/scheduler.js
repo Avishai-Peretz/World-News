@@ -24,7 +24,7 @@ const getScheduledSitesData = async (req, res) => {
       await getNDTVData();
       console.log("6 : getNDTVData finished")
       console.log("***scraping has finished***")
-      const data = await Site.find();
+      let data = await Site.find();
     if (req) {
       console.log("***updating has finished***")
       return res.status(200).send(data)
