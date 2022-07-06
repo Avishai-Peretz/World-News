@@ -10,7 +10,7 @@ export const getAlbayanData = async () => {
     const page = await browser.newPage();
     await page.goto("https://www.albayan.ae/");
     await page.waitForSelector(".albayan .first-child", {
-      timeout: 10000,
+      timeout: 30000,
     });
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector(".albayan > article > .text > h2 > a").innerText;
@@ -21,7 +21,7 @@ export const getAlbayanData = async () => {
     });
     await page.goto(firstPageInfo.url);
     await page.waitForSelector("h1.title", {
-      timeout: 10000,
+      timeout: 30000,
     });
     const url = page.url();
     const grabContent = await page.evaluate(() => {
