@@ -11,7 +11,7 @@ export const getYnetData = async () => {
   const page = await browser.newPage();
   await page.goto("https://www.ynet.co.il/");
   await page.waitForSelector("h1.slotTitle > span:nth-child(1)", {
-    timeout: 30000,
+    timeout: 100000,
   });
   const firstPageInfo = await page.evaluate(() => {
     const title = document.querySelector(
@@ -24,7 +24,7 @@ export const getYnetData = async () => {
   });
   await page.goto(firstPageInfo.url);
   await page.waitForSelector(".text_editor_paragraph.rtl", {
-    timeout: 30000,
+    timeout: 100000,
   });
     const url = page.url();  
   const grabContent = await page.evaluate(() => {

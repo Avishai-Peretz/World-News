@@ -14,7 +14,6 @@ function App() {
   
   const { setTopArticles, URI, sixTopArticles, lang, refreshLocal, saveToContext } = useContext(myContext);
   
-  
   const topArticles = async () => {
 
     const getLocalArticles = () => {

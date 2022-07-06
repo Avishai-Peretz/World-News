@@ -10,7 +10,7 @@ export const getDwData = async () => {
     const page = await browser.newPage();
     await page.goto("https://www.dw.com/en/top-stories/s-9097");
     await page.waitForSelector(".teaserContentWrap > a > h2", {
-      timeout: 30000,
+      timeout: 100000,
     });
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector(".teaserContentWrap > a > h2").innerText;
@@ -22,7 +22,7 @@ export const getDwData = async () => {
     });
     await page.click(".teaserImg > a");
     await page.waitForSelector(".longText > p", {
-      timeout: 30000,
+      timeout: 100000,
     });
     const url =page.url();
     const grabContent = await page.evaluate(() => {
