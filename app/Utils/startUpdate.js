@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const startUpdate = async () => {
+const startUpdate = async (req, res) => {
   const URI = (() => {
     if (process.env.NODE_ENV === "production") {
       return "https://worldwide-news-hackathon.herokuapp.com/update";
@@ -12,8 +12,7 @@ const startUpdate = async () => {
     const article = await axios.get(URI);
     return article.data;
   } catch (e) {
-    console.log(e.message);
-    throw new Error(e.message);
+    res.status(503).send("503 is just fine, we dont expect to get nothing on this call" + e.messag);
   }
 }
 startUpdate();

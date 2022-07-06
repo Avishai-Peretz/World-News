@@ -16,7 +16,6 @@ export const getJansatta = async () => {
       const artUrl = document.querySelector(".entry-title > a ").href;
       return artUrl;
     });
-    console.log(urlInfo)
     await page.goto(urlInfo);
     await page.waitForSelector(".wp-block-post-title", {
       timeout: 100000,
@@ -41,7 +40,6 @@ export const getJansatta = async () => {
     });
     await browser.close();
     const compare = await Site.find({ url: url })
-    console.log(compare[0].url)
     if (compare.length === 0 || !(compare[0].url === url || compare[0].img === firstPageInfo.img)) {
       const body = {
         url: url,

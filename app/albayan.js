@@ -21,7 +21,6 @@ export const getAlbayanData = async () => {
     });   
     
     const url = firstPageInfo.url.indexOf("https://www.albayan.ae/") === 0 ? firstPageInfo.url: `https://www.albayan.ae${firstPageInfo.url}`;
-    console.log(url)
     await page.goto(url);
     await page.waitForSelector("h1.title", {
       timeout: 100000,

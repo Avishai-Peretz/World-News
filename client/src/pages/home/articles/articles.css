@@ -39,10 +39,6 @@ div.home-website-img[article-name] {
 .article-container-mobile{
     display: none;
 }
-/* .splide__slide.is-visible.is-active > a > .article-container {
-    background-color: red;
-    padding: 20px;
-} */
 
 .article-container p,.article-container-mobile  p {
     background-color: rgb(255, 255, 255);
