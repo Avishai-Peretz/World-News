@@ -9,7 +9,7 @@ export const getMoscowTimesData = async () => {
     const browser = await puppeteer.launch({ args: ["--no-sandbox", '--disable-setuid-sandbox', "--disable-notifications"]});
   const page = await browser.newPage();
   await page.goto("https://www.themoscowtimes.com/");
-  if(await page.waitForSelector(".article-excerpt-lead", { timeout: 10000,})) {
+  if(await page.waitForSelector(".article-excerpt-lead", { timeout: 100000,})) {
         const firstPageInfo = await page.evaluate(() => {
         const title = document.querySelector(".article-excerpt-lead__content > h3 > span > span").innerText;
         const img = document.querySelector(".article-excerpt-lead__image-wrapper > figure > img").src;
@@ -21,7 +21,7 @@ export const getMoscowTimesData = async () => {
     
       await page.click("a.article-excerpt-lead__link");
       await page.waitForSelector(".article__featured-image", {
-        timeout: 10000,
+        timeout: 100000,
       });
     const url = page.url();
       const grabContent = await page.evaluate(() => {
@@ -95,7 +95,7 @@ export const getMoscowTimesData = async () => {
   } if (await page.waitForSelector(".contribute-modal__wrapper", { timeout: 100000, })) {
     await page.click("contribute-modal__close");
     await page.waitForSelector(".article-excerpt-lead", {
-      timeout: 10000,
+      timeout: 100000,
     });
     const firstPageInfo = await page.evaluate(() => {
       const title = document.querySelector(".article-excerpt-lead__content > h3 > span > span").innerText;
@@ -108,7 +108,7 @@ export const getMoscowTimesData = async () => {
 
     await page.click("a.article-excerpt-lead__link");
     await page.waitForSelector(".article__featured-image", {
-      timeout: 10000,
+      timeout: 100000,
     });
     const url = page.url();
     const grabContent = await page.evaluate(() => {
