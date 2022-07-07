@@ -15,26 +15,30 @@ function App() {
   const { setTopArticles, URI, sixTopArticles, lang, refreshLocal, saveToContext } = useContext(myContext);
   
   const topArticles = async () => {
-
-    const getLocalArticles = () => {
-      const local = JSON.parse(localStorage.getItem('localArticles'));
+    console.log("topArticles start")
+    const getLocalArticles =async () => {
+      const local =localStorage.getItem('localArticles')? JSON.parse(localStorage.getItem('localArticles')) : [];
+      console.log("sadasd",local)
       if (!local || local.length < 7) {
+        console.log("true")
         return true
       }
       if (local && ((new Date()).getTime() - (new Date(local[0].localUpdateTime)).getTime()) / 60000 > 10) {
+        console.log("true")
         return true
       }
-      else return false;
+      else {
+        console.log("false")
+        return false;
+      }
     };
     if ( getLocalArticles() ) {
-      await refreshLocal()
+      // await refreshLocal()
     }
     setTopArticles(saveToContext());
   };
 
-  useEffect(() => {
-    topArticles()
-  }, [,lang]);
+  useEffect(() => {topArticles()},[lang]);
 
 
   return (

@@ -11,6 +11,7 @@ const Homepage = () => {
  
   const getSixTopArticles = localStorage.getItem("localArticles") ? JSON.parse(localStorage.getItem("localArticles")) : sixTopArticles;
   
+  console.log(getSixTopArticles);
   const articlesListByDate = () => {
     const articleByDate = [];
     for (let i = getSixTopArticles.length - 1 ; i !== 0 ; i--){                            
@@ -20,10 +21,6 @@ const Homepage = () => {
   }
   const articlesByDate = articlesListByDate(); 
 
-  useEffect(() => {
-  }, [lang]);
-
-  
   return (
     <div className="page">
       <div className="articles-container">
