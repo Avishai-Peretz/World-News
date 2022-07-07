@@ -12,10 +12,21 @@ import "./App.css";
 
 function App() {
   
-  const { setTopArticles, URI, sixTopArticles, lang, refreshLocal, saveToContext } = useContext(myContext);
+  const { setTopArticles, URI, sixTopArticles, lang} = useContext(myContext);
   
   const topArticles = async () => {
     console.log("topArticles start")
+    const refreshLocal = async () => {
+      localStorage.removeItem('localArticles')
+      const articles = await axios.get(`${URI}`);
+      const localArticles = JSON.stringify([{ localUpdateTime: new Date() }, ...articles.data]);
+      localStorage.setItem("localArticles", localArticles);
+    }
+    const saveToContext = () => {
+      const getLocalArticles = JSON.parse(localStorage.getItem('localArticles'));
+      const articlesList = getLocalArticles.slice(1)
+      return articlesList
+    };
     const getLocalArticles =async () => {
       const local =localStorage.getItem('localArticles')? JSON.parse(localStorage.getItem('localArticles')) : [];
       console.log("sadasd",local)
@@ -33,7 +44,7 @@ function App() {
       }
     };
     if ( getLocalArticles() ) {
-      // await refreshLocal()
+      await refreshLocal()
     }
     setTopArticles(saveToContext());
   };
@@ -42,6 +53,7 @@ function App() {
 
 
   return (
+    // <div>snap</div>
       <BrowserRouter>
         <Header />
         <Switch>       
